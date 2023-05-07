@@ -1,4 +1,4 @@
-## 服务端
+## 服务端（所有网页客户端）
 ***
 - 复制customjs_css文件夹到\system\dashboard-ui
 - 修改\system\dashboard-ui\app.js
