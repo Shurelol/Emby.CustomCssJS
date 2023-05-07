@@ -3,6 +3,7 @@
 - 复制customjs_css文件夹及customjs_css.js到\electronapp\plugins
 - 修改\electronapp\www\app.js
     - 新增函数loadCustom
+    
       ```
       function loadCustom() {
         require(['appSettings'], function (appSettings) {
@@ -41,6 +42,7 @@
       }
       ```
   - 函数start中.then(loadHeader)和.then(onAppReady)间新增.then(loadCustom)
+  
     ```
     .then(loadHeader)
     .then(loadCustom)
