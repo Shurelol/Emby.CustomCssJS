@@ -3,6 +3,7 @@
 - 复制customjs_css文件夹到\system\dashboard-ui
 - 修改\system\dashboard-ui\app.js
     - 函数onAppReady中新增路由（可放置在路由database下面，搜索path: "/database"）  
+    
       ```
       appRouter.addRoute({
         contentPath: "/customjs_css/customjs_css.html",
@@ -18,6 +19,7 @@
       }),
       ```
     - 新增函数loadCustom
+    
       ```
       function loadCustom() {
         require(['appSettings'], function (appSettings) {
@@ -56,6 +58,7 @@
       }
       ```
   - 函数start中.then(loadHeader)和.then(onAppReady)间新增.then(loadCustom)
+  
     ```
     .then(loadHeader)
     .then(loadCustom)
@@ -63,6 +66,7 @@
     ```
 - 修改\system\dashboard-ui\modules\navdrawer\navdrawercontent.js  
     - 函数getAdminMenuItems中新增导航（可放置在导航Conversions下，搜索/conversions?mode=convert） 
+    
       ```
       links.push({
         Name: "自定义JavaScript及Css",
