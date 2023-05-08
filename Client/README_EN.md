@@ -1,6 +1,6 @@
 ## Client (electron)
+
 [中文](README.md)
-***
 - Copy customjs_css and customjs_css.js to \electronapp\plugins
 - modify \electronapp\www\app.js
     - Add new function `loadCustom()`

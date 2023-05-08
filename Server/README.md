@@ -1,6 +1,6 @@
 ## 服务端（所有网页客户端）
+
 [English](README_EN.md)
-***
 - 复制customjs_css文件夹到\system\dashboard-ui
 - 修改\system\dashboard-ui\app.js
     - 函数`onAppReady()`中新增路由（可放置在路由`database`下面，搜索`path: "/database"`）  
