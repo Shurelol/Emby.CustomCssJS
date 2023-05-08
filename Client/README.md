@@ -1,8 +1,9 @@
 ## 客户端（electron）
-
+[English](README_EN.md)
+***
 - 复制customjs_css文件夹及customjs_css.js到\electronapp\plugins
 - 修改\electronapp\www\app.js
-    - 新增函数loadCustom
+    - 新增函数`loadCustom()`
     
       ```
       function loadCustom() {
@@ -41,12 +42,12 @@
         });
       }
       ```
-  - 函数start中.then(loadHeader)和.then(onAppReady)间新增.then(loadCustom)
-  
+  - 函数`start()`中`.then(loadHeader)`和`.then(onAppReady)`间新增`.then(loadCustom)`  
+
     ```
     .then(loadHeader)
     .then(loadCustom)
     .then(onAppReady)
     ```
 ***
-- 若添加自定义JS或者Css后页面无法加载，app.js中删除.then(loadCustom)，重启后，编辑自定义JS或者Css
+- 若添加自定义JS或者Css后页面无法加载，app.js中删除`.then(loadCustom)`，重启后，编辑自定义JS或者Css

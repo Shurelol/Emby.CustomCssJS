@@ -1,25 +1,9 @@
-## 服务端（所有网页客户端）
-[English](README_EN.md)
+## Client (electron)
+[中文](README.md)
 ***
-- 复制customjs_css文件夹到\system\dashboard-ui
-- 修改\system\dashboard-ui\app.js
-    - 函数`onAppReady()`中新增路由（可放置在路由`database`下面，搜索`path: "/database"`）  
-    
-      ```
-      appRouter.addRoute({
-        contentPath: "/customjs_css/customjs_css.html",
-        path: "/customjs_css",
-        autoFocus: !1,
-        roles: "admin",
-        controller: "customjs_css/customjs_css.js",
-        controllerType: "module",
-        title: "自定义JavaScript及Css",
-        settingsTheme: !0,
-        clearBackdrop: !0,
-        adjustHeaderForEmbeddedScroll: !0,
-      }),
-      ```
-    - 新增函数`loadCustom()`
+- Copy customjs_css and customjs_css.js to \electronapp\plugins
+- modify \electronapp\www\app.js
+    - Add new function `loadCustom()`
     
       ```
       function loadCustom() {
@@ -58,22 +42,12 @@
         });
       }
       ```
-  - 函数`start()`中`.then(loadHeader)`和`.then(onAppReady)`间新增`.then(loadCustom)`
+  - Add `.then(loadCustom)` between `.then(loadHeader)` and `.then(onAppReady)` in `start()`
   
     ```
     .then(loadHeader)
     .then(loadCustom)
     .then(onAppReady)
     ```
-- 修改\system\dashboard-ui\modules\navdrawer\navdrawercontent.js  
-    - 函数`getAdminMenuItems()`中新增导航（可放置在导航`Conversions`下，搜索`/conversions?mode=convert`） 
-    
-      ```
-      links.push({
-        Name: "自定义JavaScript及Css",
-        Icon: "tv",
-        href: "/customjs_css",
-      }),
-      ```
 ***
-- 若添加自定义JS或者Css后页面无法加载，app.js中删除`.then(loadCustom)`，重启后，编辑自定义JS或者Css
+- if there was a loading error, delete `.then(loadCustom)` and restart. You can edit custom JavaScript or Css after then 
