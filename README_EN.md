@@ -9,7 +9,11 @@
 - Server (web) [README](src/Server/README_EN.md)
   - admin：add, edit, delete, modify state \(for all web clients\)
   
+  ![photo_2023-05-10_22-15-38](https://github.com/Shurelol/EmbyCustomJS_Css/assets/16237201/8b31bffa-c03d-43a9-93e0-33eef3592fef)
+
   - user：view, modify state \(for current client\)
+  
+  ![photo_2023-05-10_22-15-41](https://github.com/Shurelol/EmbyCustomJS_Css/assets/16237201/b44cada1-f588-4a37-a235-73e524c1a7f6)
 
 
 - Client (electron) [README](src/Client/README_EN.md)  
