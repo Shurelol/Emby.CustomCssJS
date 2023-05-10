@@ -10,3 +10,8 @@
 
 - 服务端（所有网页客户端），[使用说明](src/README_SERVER.md) 
 
+![image](https://github.com/Shurelol/EmbyCustomJS_Css/assets/16237201/d93fddc0-93ea-436d-bc79-27f728be5cdc)
+
+![image](https://github.com/Shurelol/EmbyCustomJS_Css/assets/16237201/ea13689c-55ae-448d-8b1b-045acb39c70b)
+
+
