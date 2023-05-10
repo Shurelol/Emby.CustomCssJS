@@ -22,4 +22,7 @@
 
   ![image](https://github.com/Shurelol/EmbyCustomJS_Css/assets/16237201/ea13689c-55ae-448d-8b1b-045acb39c70b)
 
+***
+- [src/ace](src/ace) 为所需ace.js的最小化版本，仅包含所需功能
+
 
