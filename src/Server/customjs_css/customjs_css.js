@@ -68,11 +68,17 @@
                     list.appendChild(list_item);
                 }
             }
-
+            
             // btn add
-            view.querySelector(`#btnCustom${type}add`).addEventListener("click", function () {
-                update(type);
-            });
+            if (userflag) {
+                view.querySelector(`#btnCustom${type}add`).addEventListener("click", function () {
+                    update(type);
+                });
+            } else {
+                view.querySelector(`#btnCustom${type}add`).remove();
+            }
+
+
 
         }
 
