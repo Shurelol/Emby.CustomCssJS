@@ -5,6 +5,10 @@
         return false;
     }
 
+    function quit(view) {
+        view.querySelector(`#txtCustomJS_Csscontent`).remove();
+    }
+
     function renderSettings(settingview) {
         //初始化代码编辑器
         function initEditor(type) {
@@ -31,9 +35,10 @@
             editor.setFontSize(15);
             //设置只读（true时只读，用于展示代码）
             editor.setReadOnly(false);
+            //自动换行,设置为off关闭
+            editor.setOption("wrap", "free");
             //启用提示菜单
             editor.setOptions({
-                warp: "free",
                 fontFamily: "Consolas, Monaco, monospace",
                 enableBasicAutocompletion: true,
                 enableSnippets: true,
@@ -76,6 +81,7 @@
                 date: new Date().toLocaleString(),
                 enabled: view.querySelector(`#txtCustomJS_Cssenabled`).value
             };
+            editor.destroy();
             appSettings.set(`Custom${type}`, JSON.stringify(custom_settings));
             let url = pluginManager.mapRoute(
                         "customjs_css",
@@ -142,6 +148,8 @@
     SettingsView.prototype.onPause = function () {
 
         BaseView.prototype.onPause.apply(this, arguments);
+
+        quit(this.view);
     };
 
     return SettingsView;
