@@ -6,7 +6,7 @@
   - [embyLaunchPotplayer](https://greasyfork.org/zh-CN/scripts/459297-embylaunchpotplayer/code)
   - [Emby调用弹弹play](https://greasyfork.org/zh-CN/scripts/443916-emby%E8%B0%83%E7%94%A8%E5%BC%B9%E5%BC%B9play/code)
   - 弹幕相关插件暂时无法通过JavaScript及Css添加
-- 客户端（electron），[使用说明](src/README.md)  
+- 客户端（electron），[使用说明](src/README_CLIENT.md)  
 
-- 服务端（所有网页客户端），[使用说明](src/README.md) 
+- 服务端（所有网页客户端），[使用说明](src/README_SERVER.md) 
 
