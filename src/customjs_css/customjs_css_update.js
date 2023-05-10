@@ -41,6 +41,8 @@
                 enableSnippets: true,
                 enableLiveAutocompletion: true,
             });
+            // 去掉打印线
+            editor.setShowPrintMargin(false);
             // 粘贴监听
             let beautify = ace.require("ace/ext/beautify");
             editor.on("paste", function(e){
