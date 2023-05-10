@@ -43,14 +43,11 @@
             });
             // 去掉打印线
             editor.setShowPrintMargin(false);
-            // 粘贴监听
-            let beautify = ace.require("ace/ext/beautify");
-            editor.on("paste", function(e){
-                setTimeout(function(){
-                    beautify.beautify(editor.session)
-                }, 500);
-            })
             return editor;
+        }
+
+        function format() {
+            beautify.beautify(editor.session)
         }
 
         function save(){
@@ -89,6 +86,7 @@
             embyRouter.show(url);
         }
 
+        let beautify = ace.require("ace/ext/beautify");
         let view = settingview.view;
         let params = settingview.params;
         let type = params.type || "JS";
@@ -113,6 +111,9 @@
         }
         view.querySelector(`#btnCustomJS_Csssave`).addEventListener("click", function () {
             save();
+        });
+        view.querySelector(`#btnCustomJS_Cssformat`).addEventListener("click", function () {
+            format();
         });
 
     }
