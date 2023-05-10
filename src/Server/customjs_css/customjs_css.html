@@ -1,0 +1,82 @@
+<div is="emby-scroller" class="view flex flex-direction-column scrollFrameY flex-grow" data-mousewheel="true"
+     data-horizontal="false" data-forcescrollbar="true" data-centerfocus="card" data-bindheader="true"
+     xmlns="http://www.w3.org/1999/html">
+    <div class="scrollSlider flex-grow flex-direction-column padded-left padded-left-page padded-right padded-top-page padded-bottom-page settingsContainer">
+        <form class="auto-center padded-top" id="formCustomJS_Csslist">
+            <div>
+                <button id="btnCustomJS_Cssreload" is="emby-button" type="submit" class="raised button-submit block">
+                    <span>重载自定义JavaScript及Css</span>
+                </button>
+            </div>
+            <br>
+
+            <div class="verticalSection">
+                <div class="sectionTitleContainer sectionTitleContainer-cards">
+                    <h2 class="sectionTitle sectionTitle-cards">
+                        <span>自定义JavaScript</span>
+                    </h2>
+                    <button is="emby-button" id="btnCustomJSadd" value="0" type="button" class="raised raised-mini btnAddDevice submit sectionTitleButton emby-button emby-button-backdropfilter raised-backdropfilter" style="margin-left:1em;">
+                        <i class="md-icon button-icon button-icon button-icon-left">&#xE145;</i>
+                        <span>添加JavaScript </span>
+                    </button>
+                    <div class="fieldDescription" style="margin-left: 0.5rem;">应用于当前客户端（服务端则应用于所有网页客户端）</div>
+                </div>
+            </div>
+            <br>
+
+            <div is="emby-itemscontainer" id="listCustomJS" class="itemsContainer flex-direction-column flex flex-grow">
+                <div id="listitemCustomJS_0" class="listItem focusable listItem-hoverable listItem-withContentWrapper" style="display: none">
+                    <div class="listItem-content listItemContent-touchzoom listItem-border">
+                        <div>
+                            <i title="服务端已启用" aria-label="服务端已启用" class="md-icon listItemIcon" style="color: var(--theme-accent-text-color-darkbg)">check_circle</i>
+                            <i title="服务端未启用" aria-label="服务端未启用" class="md-icon listItemIcon secondaryText">cancel</i>
+                        </div>
+                        <div>
+                            <i title="本地已启用" aria-label="本地已启用" class="md-icon listItemIcon" style="color: var(--theme-accent-text-color-darkbg)">check</i>
+                            <i title="本地未启用" aria-label="本地未启用" class="md-icon listItemIcon secondaryText">close</i>
+                        </div>
+                        <div class="listItemBody itemAction">
+                            <div class="listItemBodyText listItemBodyText-nowrap listItemBodyText-lf"></div>
+                            <div class="listItemBodyText listItemBodyText-nowrap listItemBodyText-lf listItemBodyText-secondary"></div>
+                        </div>
+                        <button title="编辑" aria-label="编辑" type="button" is="paper-icon-button-light" class="listItemButton itemAction md-icon paper-icon-button-light">edit</button>
+                        <button title="删除" aria-label="删除" type="button" is="paper-icon-button-light" class="listItemButton itemAction md-icon paper-icon-button-light">delete</button>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br>
+
+            <div class="verticalSection">
+                <div class="sectionTitleContainer sectionTitleContainer-cards">
+                    <h2 class="sectionTitle sectionTitle-cards">
+                        <span>自定义Css</span>
+                    </h2>
+                    <button is="emby-button" id="btnCustomCssadd" value="0" type="button" class="raised raised-mini btnAddDevice submit sectionTitleButton emby-button emby-button-backdropfilter raised-backdropfilter" style="margin-left:1em;">
+                        <i class="md-icon button-icon button-icon button-icon-left">&#xE145;</i>
+                        <span>添加Css </span>
+                    </button>
+                    <div class="fieldDescription" style="margin-left: 0.5rem;">应用于当前客户端（服务端则应用于所有网页客户端）</div>
+                </div>
+            </div>
+            <br>
+
+            <div is="emby-itemscontainer" id="listCustomCss" class="itemsContainer flex-direction-column flex flex-grow">
+                <div id="listitemCustomCss_0" class="listItem focusable listItem-hoverable listItem-withContentWrapper" style="display: none">
+                    <div class="listItem-content listItemContent-touchzoom listItem-border">
+                        <i title="已启用" aria-label="已启用" class="md-icon listItemIcon" style="color: var(--theme-accent-text-color-darkbg)">check</i>
+                        <i class="md-icon listItemIcon" style="opacity: 0">check</i>
+                        <div class="listItemBody itemAction">
+                            <div class="listItemBodyText listItemBodyText-nowrap listItemBodyText-lf"></div>
+                            <div class="listItemBodyText listItemBodyText-nowrap listItemBodyText-lf listItemBodyText-secondary"></div>
+                        </div>
+                        <button title="编辑" aria-label="编辑" type="button" is="paper-icon-button-light" class="listItemButton itemAction md-icon paper-icon-button-light">edit</button>
+                        <button title="删除" aria-label="删除" type="button" is="paper-icon-button-light" class="listItemButton itemAction md-icon paper-icon-button-light">delete</button>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+</div>

@@ -1,6 +1,6 @@
 ## 客户端（electron）
 
-[English](README_CLIENT_EN.md)
+[English](README_EN.md)
 ### 引入ace.js
 - 下载 [ace.js (build)](https://github.com/ajaxorg/ace-builds/archive/refs/heads/master.zip)
 - 复制`src-noconflict文件夹`到`\electronapp\www\bower_components`并重命名为ace

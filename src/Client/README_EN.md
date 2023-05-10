@@ -1,6 +1,6 @@
 ## Client (electron)
 
-[中文](README_CLIENT.md)
+[中文](README.md)
 ### import ace.js
 - download [ace.js (build)](https://github.com/ajaxorg/ace-builds/archive/refs/heads/master.zip)
 - copy folder `src-noconflict` to `\electronapp\www\bower_components` and rename it to ace

@@ -1,6 +1,6 @@
 ## Server (web)
 
-[中文](README_SERVER.md)
+[中文](README.md)
 ### import ace.js
 - download [ace.js (build)](https://github.com/ajaxorg/ace-builds/archive/refs/heads/master.zip)
 - copy folder `src-noconflict` to `\system\dashboard-ui\bower_components` and rename it to ace

@@ -1,6 +1,6 @@
 ## 服务端（网页客户端）
 
-[English](README_SERVER_EN.md)
+[English](README_EN.md)
 ### 引入ace.js
 - 下载 [ace.js (build)](https://github.com/ajaxorg/ace-builds/archive/refs/heads/master.zip)
 - 复制`src-noconflict文件夹`到`\system\dashboard-ui\bower_components`并重命名为ace
