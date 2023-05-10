@@ -10,13 +10,16 @@
 - 服务端（所有网页客户端），[使用说明](src/Server/README.md)
   - 管理员：新增，编辑，删除，修改状态（应用与所有网页客户端）
   
+  ![photo_2023-05-10_22-15-38](https://github.com/Shurelol/EmbyCustomJS_Css/assets/16237201/706288aa-5edc-43be-a510-b96d573de45f)
+
   - 用户：查看，修改状态（应用与当前客户端）
   
+  ![photo_2023-05-10_22-15-41](https://github.com/Shurelol/EmbyCustomJS_Css/assets/16237201/96f30640-6a3f-4750-9539-5042cfdb3a3c)
 
 - 客户端（electron），[使用说明](src/Client/README.md)  
 
-![image](https://github.com/Shurelol/EmbyCustomJS_Css/assets/16237201/d93fddc0-93ea-436d-bc79-27f728be5cdc)
+  ![image](https://github.com/Shurelol/EmbyCustomJS_Css/assets/16237201/d93fddc0-93ea-436d-bc79-27f728be5cdc)
 
-![image](https://github.com/Shurelol/EmbyCustomJS_Css/assets/16237201/ea13689c-55ae-448d-8b1b-045acb39c70b)
+  ![image](https://github.com/Shurelol/EmbyCustomJS_Css/assets/16237201/ea13689c-55ae-448d-8b1b-045acb39c70b)
 
 
