@@ -1,0 +1,37 @@
+<div is="emby-scroller" class="view flex flex-direction-column scrollFrameY flex-grow" data-mousewheel="true"
+     data-horizontal="false" data-forcescrollbar="true" data-centerfocus="card" data-bindheader="true"
+     xmlns="http://www.w3.org/1999/html">
+    <div class="scrollSlider flex-grow flex-direction-column padded-left padded-left-page padded-right padded-top-page padded-bottom-page settingsContainer">
+        <form class="auto-center padded-top" id="formCustomJS_Cssdetail" style="max-width: 150ch">
+            <div class="verticalSection">
+                <div class="inputContainer" style="max-width: 90ch">
+                    <label class="inputLabel" for="txtCustomJS_Cssname">名称：</label>
+                    <input id="txtCustomJS_Cssname" is="emby-input" type="text" step="1" class="emby-input">
+                    <br>
+
+                    <label class="inputLabel" for="txtCustomJS_Cssenabled">状态：</label>
+                    <select id="txtCustomJS_Cssenabled" is="emby-select" class="emby-select">
+                        <option value="0">不启用</option>
+                        <option value="1">启用</option>
+                    </select>
+                    <br>
+                </div>
+
+                <div class="inputContainer">
+                    <label class="inputLabel">内容：</label>
+                    <div id="txtCustomJS_Csscontent" is="emby-textarea" class="emby-textarea" style="min-height: 70rem;"></div>
+                    <br>
+
+                    <button id="btnCustomJS_Csssave" is="emby-button" type="submit" class="raised button-submit block">
+                        <i class="md-icon button-icon button-icon button-icon-left">save</i>
+                        <span>保存</span>
+                    </button>
+                </div>
+            </div>
+        </form>
+
+
+    </div>
+
+
+</div>
