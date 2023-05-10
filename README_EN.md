@@ -9,3 +9,7 @@
 - Client (electron) [README](src/README_CLIENT_EN.md)  
 
 - Server (web) [README](src/README_SERVER_EN.md)
+
+![image](https://github.com/Shurelol/EmbyCustomJS_Css/assets/16237201/0f51d907-b60f-4216-9ddc-9e33874ac745)
+
+![image](https://github.com/Shurelol/EmbyCustomJS_Css/assets/16237201/2eedcfa2-cbeb-462a-b822-d7a632e26375)
