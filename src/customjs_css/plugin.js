@@ -30,7 +30,7 @@ define(['globalize', 'apphost', 'playbackManager', 'pluginManager', 'events', 'e
         title: "自定义JavaScript及Css",
         category: "Playback",
         thumbImage: "",
-        icon: "tv",
+        icon: "tune",
         order: 2,
         settingsTheme: !0,
         adjustHeaderForEmbeddedScroll: !0,
