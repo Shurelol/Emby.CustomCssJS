@@ -8,8 +8,6 @@
     function renderSettings(settingview) {
         //初始化代码编辑器
         function initEditor(type) {
-            // 清空
-            view.querySelector(`#txtCustomJS_Csscontent`).innerHTML = "";
             //获取控件
             let editor = ace.edit(`txtCustomJS_Csscontent`);
             //设置风格和语言（更多风格和语言，请到github上相应目录查看）
@@ -88,6 +86,8 @@
 
         let beautify = ace.require("ace/ext/beautify");
         let view = settingview.view;
+        // 清空
+        view.querySelector(`#txtCustomJS_Csscontent`).innerHTML = "";
         let params = settingview.params;
         let type = params.type || "JS";
         let name = params.name ? encodeURIComponent(params.name) : "";

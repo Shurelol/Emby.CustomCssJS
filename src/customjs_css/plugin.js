@@ -73,7 +73,6 @@ define(['globalize', 'apphost', 'playbackManager', 'pluginManager', 'events', 'e
 
       try {
         let customjs = loadSettings("JS");
-        console.warn(customjs);
         if (customjs) {
           for (let name in customjs) {
             let content = customjs[name].content;
