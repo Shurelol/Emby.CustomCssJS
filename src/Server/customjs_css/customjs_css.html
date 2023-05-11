@@ -64,8 +64,14 @@
             <div is="emby-itemscontainer" id="listCustomCss" class="itemsContainer flex-direction-column flex flex-grow">
                 <div id="listitemCustomCss_0" class="listItem focusable listItem-hoverable listItem-withContentWrapper" style="display: none">
                     <div class="listItem-content listItemContent-touchzoom listItem-border">
-                        <i title="已启用" aria-label="已启用" class="md-icon listItemIcon" style="color: var(--theme-accent-text-color-darkbg)">check</i>
-                        <i class="md-icon listItemIcon" style="opacity: 0">check</i>
+                        <div>
+                            <i title="服务端已启用" aria-label="服务端已启用" class="md-icon listItemIcon" style="color: var(--theme-accent-text-color-darkbg)">check_circle</i>
+                            <i title="服务端未启用" aria-label="服务端未启用" class="md-icon listItemIcon secondaryText">cancel</i>
+                        </div>
+                        <div>
+                            <i title="本地已启用" aria-label="本地已启用" class="md-icon listItemIcon" style="color: var(--theme-accent-text-color-darkbg)">check</i>
+                            <i title="本地未启用" aria-label="本地未启用" class="md-icon listItemIcon secondaryText">close</i>
+                        </div>
                         <div class="listItemBody itemAction">
                             <div class="listItemBodyText listItemBodyText-nowrap listItemBodyText-lf"></div>
                             <div class="listItemBodyText listItemBodyText-nowrap listItemBodyText-lf listItemBodyText-secondary"></div>

@@ -71,8 +71,6 @@ define(['globalize', 'apphost', 'playbackManager', 'pluginManager', 'events', 'e
         }
       }
       localStorage.setItem(`Custom${type}local`, JSON.stringify(custom_settings));
-      console.warn(custom_settings)
-      console.warn(localStorage.getItem(`Custom${type}local`))
       return custom_settings;
     }
 

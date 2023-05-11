@@ -25,7 +25,6 @@
             if (custom_settings) {
                 custom_settings = JSON.parse(custom_settings);
                 let custom_settings_local = localStorage.getItem(`Custom${type}local`);
-                console.warn(custom_settings_local)
                 custom_settings_local = custom_settings_local ? JSON.parse(custom_settings_local) : {};
                 for (let name in custom_settings) {
                     let detail = custom_settings[name];
