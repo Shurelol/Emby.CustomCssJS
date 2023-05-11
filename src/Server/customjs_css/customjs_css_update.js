@@ -15,7 +15,18 @@
             //获取控件
             let editor = ace.edit(`txtCustomJS_Csscontent`);
             //设置风格和语言（更多风格和语言，请到github上相应目录查看）
-            let theme = "one_dark";
+            let rootStyle = getComputedStyle(document.documentElement);
+            let colorNow = rootStyle.getPropertyValue('--theme-accent-text-color').toString();
+            let colorLight = rootStyle.getPropertyValue('--theme-accent-text-color-lightbg').toString();
+            let colorDark = rootStyle.getPropertyValue('--theme-accent-text-color-darkbg').toString();
+            let theme;
+            if (colorNow.includes(colorDark)) {
+                theme = "one_dark";
+            } else if (colorNow.includes(colorLight)) {
+                theme = "xcode";
+            } else {
+                theme = "xcode";
+            }
             editor.setTheme(`ace/theme/${theme}`);
             //语言
             let language;
