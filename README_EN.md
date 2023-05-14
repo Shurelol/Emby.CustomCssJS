@@ -10,9 +10,14 @@
 
 - Admin page：
   - Provide scripts for All users, User can choose to use it or not unless the script is forced on
+
+  ![photo_2023-05-14_21-45-18](https://github.com/Shurelol/Emby.CustomCssJS/assets/16237201/274dc810-0fff-4d0c-9fe0-33cbba5fbf4f)
+
   
 
 - User page：
   - Choose to use scripts provided by the admin or not
   - Write own scripts, which are stored in localStorage
   - Config of the state of scripts are stored in localStorage, if there is an error, you can reset it
+
+  ![photo_2023-05-14_21-45-22](https://github.com/Shurelol/Emby.CustomCssJS/assets/16237201/1d89c3d4-a393-448e-8c4a-78c9d63bde65)
