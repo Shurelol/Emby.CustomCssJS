@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cuatom Css and JavaScript</title>
+</head>
+<body>
+    <div id="customcssjsConfigurationPage" data-role="page" class="page type-interior pluginConfigurationPage" data-controller="__plugin/customcssjs_provider_updatejs">
+        <div data-role="content">
+            <div class="content-primary">
+
+                <form id="customcssjsConfigurationForm">
+
+                    <div class="verticalSection">
+                        <div class="inputContainer" style="max-width: 90ch">
+                            <label class="inputLabel" for="customjscssName">Name: </label>
+                            <input id="customjscssName" is="emby-input" type="text" step="1" class="emby-input">
+                            <br>
+
+                            <label class="inputLabel" for="customjscssDescription">Description: </label>
+                            <input id="customjscssDescription" is="emby-input" type="text" step="1" class="emby-input">
+                            <br>
+
+                            <label class="inputLabel" for="customjscssState">State: </label>
+                            <select id="customjscssState" is="emby-select" class="emby-select">
+                                <option value="off">Off</option>
+                                <option value="on">On</option>
+                                <option value="forced_on">Forced On</option>
+                            </select>
+                            <br>
+                        </div>
+
+                        <div class="inputContainer">
+                            <label class="inputLabel" for="customjscssContent">Content: </label>
+                            <textarea id="customjscssContent" is="emby-textarea" class="textarea-mono" style="min-height: 50rem;"></textarea>
+<!--                            <div id="customjscssContent" is="emby-textarea" class="emby-textarea" style="min-height: 65rem;"></div>-->
+                            <br>
+
+<!--                            <button id="customjscssFormatBtn" is="emby-button" type="submit" class="raised emby-button block">-->
+<!--                                <i class="md-icon button-icon button-icon button-icon-left">transform</i>-->
+<!--                                <span>Format</span>-->
+<!--                            </button>-->
+<!--                            <br>-->
+
+                            <button id="customjscssSaveBtn" is="emby-button" type="submit" class="raised button-submit block">
+                                <i class="md-icon button-icon button-icon button-icon-left">save</i>
+                                <span>Save</span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

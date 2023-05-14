@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>netstandard2.0;</TargetFrameworks>
+		<AssemblyVersion>1.0.0.1</AssemblyVersion>
+		<FileVersion>1.0.0.1</FileVersion>
+		<AssemblyName>Emby.CustomCssJS</AssemblyName>
+		<RootNamespace>Emby.CustomCssJS</RootNamespace>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Remove="Configuration\customcssjs.html" />
+		<None Remove="Configuration\customcssjs.js" />
+		<None Remove="Configuration\customcssjs_update.html" />
+		<None Remove="Configuration\customcssjs_update.js" />
+		<None Remove="Configuration\customcssjs_provider.html" />
+		<None Remove="Configuration\customcssjs_provider.js" />
+		<None Remove="Configuration\customcssjs_provider_update.html" />
+		<None Remove="Configuration\customcssjs_provider_update.js" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Include="Configuration\customcssjs.html" />
+		<EmbeddedResource Include="Configuration\customcssjs.js" />
+		<EmbeddedResource Include="Configuration\customcssjs_update.html" />
+		<EmbeddedResource Include="Configuration\customcssjs_update.js" />
+		<EmbeddedResource Include="Configuration\customcssjs_provider.html" />
+		<EmbeddedResource Include="Configuration\customcssjs_provider.js" />
+		<EmbeddedResource Include="Configuration\customcssjs_provider_update.html" />
+		<EmbeddedResource Include="Configuration\customcssjs_provider_update.js" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="mediabrowser.server.core" Version="4.8.0.24-beta" />	
+	</ItemGroup>
+
+	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
+	  <Exec Command="xcopy &quot;E:\github\Emby.CustomCssJS\bin\Debug\netstandard2.0\Emby.CustomCssJS.dll&quot; &quot;C:\Users\sjtum\AppData\Roaming\Emby-Server\system\plugins&quot; /y" />
+	</Target>
+
+</Project>
