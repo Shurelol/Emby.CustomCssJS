@@ -10,10 +10,15 @@
 
 - 管理员页面：
   - 为所有用户提供脚本，用户可以选择使用（强制开启的强制使用）
+
+  ![photo_2023-05-14_21-45-18](https://github.com/Shurelol/Emby.CustomCssJS/assets/16237201/b3890993-e5e7-497f-915c-8df75c53f64a)
   
 
 - 用户页面：
   - 管理员提供的脚本可以选择使用
   - 用户自定义的脚本储存在本地（localStorage）
   - 脚本启用信息储存在本地（localStorage），加载有错误可重置还原
+  
+  ![photo_2023-05-14_21-45-22](https://github.com/Shurelol/Emby.CustomCssJS/assets/16237201/25309616-bfa1-464c-94a8-e29e500d5278)
+
 
