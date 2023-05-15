@@ -34,8 +34,4 @@
 		<PackageReference Include="mediabrowser.server.core" Version="4.8.0.24-beta" />	
 	</ItemGroup>
 
-	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
-	  <Exec Command="xcopy &quot;E:\github\Emby.CustomCssJS\bin\Debug\netstandard2.0\Emby.CustomCssJS.dll&quot; &quot;C:\Users\sjtum\AppData\Roaming\Emby-Server\system\plugins&quot; /y" />
-	</Target>
-
 </Project>
