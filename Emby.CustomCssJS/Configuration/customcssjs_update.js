@@ -25,13 +25,8 @@
     function save(type, source, nameOld) {
       let name = view.querySelector(`#customjscssName`).value;
       let state = view.querySelector(`#customjscssState`).value;
-      if (source === "Server") {
-        let customConfig = JSON.parse(localStorage.getItem(`custom${type}Config`)).filter(item => item.name !== nameOld);
-        if (state === "on") {
-          customConfig.push(name)
-        }
-        localStorage.setItem(`custom${type}Config`, JSON.stringify(customConfig));
-      } else if (source === "Local") {
+      let customConfigName;
+      if (source === "Local") {
         let description = view.querySelector(`#customjscssDescription`).value;
         let content = view.querySelector(`#customjscssContent`).value;
         if (!name) {
@@ -56,12 +51,24 @@
         customLocalNew.push({
           name: name,
           description: description,
-          state: state,
           date: new Date().toLocaleString(),
           content: content
         });
         localStorage.setItem(`custom${type}Local`, JSON.stringify(customLocalNew));
+        customConfigName = `custom${type}${source}Config`;
+      } else if (source === "Server") {
+        let serverId = ApiClient.serverId();
+        customConfigName = `custom${type}${source}Config_${serverId}`;
       }
+      // save state
+      if (customConfigName) {
+        let customConfig = JSON.parse(localStorage.getItem(customConfigName)).filter(item => item !== nameOld && item !== name);
+        if (state === "on") {
+          customConfig.push(name)
+        }
+        localStorage.setItem(customConfigName, JSON.stringify(customConfig));
+      }
+      // send message and redirect
       toast(`${name} saved`);
       loadConfiguration("type");
       embyRouter.show(`configurationpage?name=customcssjs`);
@@ -71,17 +78,18 @@
       // set name
       let nameNode = view.querySelector(`#customjscssName`);
       nameNode.value = name;
-      nameNode.disable = (source === "Server");
+      nameNode.readOnly = (source === "Server");
       // set description
       let descriptionNode = view.querySelector(`#customjscssDescription`);
       descriptionNode.value = description;
-      descriptionNode.defer = (source === "Server");
+      descriptionNode.readOnly = (source === "Server");
       // set state
       let stateNode = view.querySelector(`#customjscssState`);
       stateNode.value = state;
       // set content
       let contentNode = view.querySelector(`#customjscssContent`);
       contentNode.value = content;
+      contentNode.readOnly = (source === "Server");
     }
 
     function loadConfiguration(type, source, name) {
@@ -89,11 +97,16 @@
         if (source === "Server") {
           ApiClient.getPluginConfiguration(pluginUniqueId).then(function (config) {
             let detail = config[`custom${type}`].find(item => item.name === name);
+            let serverId = ApiClient.serverId();
+            let customServerConfig = JSON.parse(localStorage.getItem(`custom${type}ServerConfig_${serverId}`));
+            detail.state = customServerConfig.includes(detail.name) ? "on" : "off";
             detail ? renderConfiguration(type, source, detail.name, detail.description, detail.state, detail.content)
               : renderConfiguration(type, source, "", "", "off", "");
           });
         } else if (source === "Local") {
           let detail = JSON.parse(localStorage.getItem(`custom${type}Local`)).find(item => item.name === name);
+          let customLocalConfig = JSON.parse(localStorage.getItem(`custom${type}LocalConfig`));
+          detail.state = customLocalConfig.includes(detail.name) ? "on" : "off";
           detail ? renderConfiguration(type, source, detail.name, detail.description, detail.state, detail.content)
             : renderConfiguration(type, source, "", "", "off", "");
         }

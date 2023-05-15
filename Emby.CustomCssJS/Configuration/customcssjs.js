@@ -131,20 +131,31 @@ define([
     }
 
     function getCustom(type, config) {
-      // get custom in Server
-      let customConfig = localStorage.getItem(`custom${type}Config`);
-      if (!customConfig) {
-        customConfig = [];
-        localStorage.setItem(`custom${type}Config`, JSON.stringify(customConfig));
+      // get Config for Server
+      let serverId = ApiClient.serverId();
+      let customServerConfig = localStorage.getItem(`custom${type}ServerConfig_${serverId}`);
+      if (!customServerConfig) {
+        customServerConfig = [];
+        localStorage.setItem(`custom${type}ServerConfig_${serverId}`, JSON.stringify(customServerConfig));
       } else {
-        customConfig = JSON.parse(customConfig);
+        customServerConfig = JSON.parse(customServerConfig);
       }
+      // get custom in Server
       let customServer = config[`custom${type}`].filter(item => item.state !== "off");
       customServer.forEach(function (item) {
         if (item.state !== "forced_on") {
-          customConfig.includes(item.name) ? item.state = "on" : item.state = "off";
+          customServerConfig.includes(item.name) ? item.state = "on" : item.state = "off";
         }
       });
+
+      // get Config for Local
+      let customLocalConfig = localStorage.getItem(`custom${type}LocalConfig`);
+      if (!customLocalConfig) {
+        customLocalConfig = [];
+        localStorage.setItem(`custom${type}LocalConfig`, JSON.stringify(customLocalConfig));
+      } else {
+        customLocalConfig = JSON.parse(customLocalConfig);
+      }
       // get custom in Local
       let customLocal = localStorage.getItem(`custom${type}Local`);
       if (!customLocal) {
@@ -153,6 +164,10 @@ define([
       } else {
         customLocal = JSON.parse(customLocal);
       }
+      customLocal.forEach(function (item) {
+        customLocalConfig.includes(item.name) ? item.state = "on" : item.state = "off";
+      })
+
       return [customServer, customLocal];
     }
 

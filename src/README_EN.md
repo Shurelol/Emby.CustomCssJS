@@ -21,3 +21,7 @@
       list.push("./modules/CustomCssJS.js"),
       Promise.all(list.map(loadPlugin))
       ```
+***
+- State config of Server Scripts stored in `localStorage`, key: `customcssServerConfig_${sercerID}` and `customjsServerConfig_${sercerID}`
+- State config of Local Scripts stored in `localStorage`, key: `customcssLocalConfig` and `customjsLocalConfig`
+- If error occurred, del these data in `localStorage`

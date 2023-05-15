@@ -2,8 +2,8 @@
 
 	<PropertyGroup>
 		<TargetFrameworks>netstandard2.0;</TargetFrameworks>
-		<AssemblyVersion>1.0.0.1</AssemblyVersion>
-		<FileVersion>1.0.0.1</FileVersion>
+		<AssemblyVersion>1.0.0.2</AssemblyVersion>
+		<FileVersion>1.0.0.2</FileVersion>
 		<AssemblyName>Emby.CustomCssJS</AssemblyName>
 		<RootNamespace>Emby.CustomCssJS</RootNamespace>
 	</PropertyGroup>
