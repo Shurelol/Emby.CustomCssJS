@@ -23,4 +23,5 @@
   ![photo_2023-05-14_21-45-22](https://github.com/Shurelol/Emby.CustomCssJS/assets/16237201/1d89c3d4-a393-448e-8c4a-78c9d63bde65)
 
 - The script loading situation showed in the console
+
   ![image](https://github.com/Shurelol/Emby.CustomCssJS/assets/16237201/0582e5a7-8539-4d4d-a360-7affe836f133)
