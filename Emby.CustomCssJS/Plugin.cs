@@ -6,12 +6,14 @@ using MediaBrowser.Model.Serialization;
 using MediaBrowser.Model.Plugins;
 using MediaBrowser.Model.Services;
 using Emby.CustomCssJS.Configuration;
+using MediaBrowser.Common.Plugins;
+using MediaBrowser.Model.Drawing;
 
 
 namespace Emby.CustomCssJS
 {
     /// <summary>Class Plugin</summary>
-    public class Plugin : MediaBrowser.Common.Plugins.BasePlugin<PluginConfiguration>, IHasWebPages
+    public class Plugin : MediaBrowser.Common.Plugins.BasePlugin<PluginConfiguration>, IHasWebPages, IHasThumbImage
     {
         public Plugin(IApplicationPaths applicationPaths, IXmlSerializer xmlSerializer) 
             : base(applicationPaths, xmlSerializer)
@@ -101,5 +103,14 @@ namespace Emby.CustomCssJS
         /// <summary>Gets the instance.</summary>
         /// <value>The instance.</value>
         public static Plugin Instance { get; private set; }
+
+        public ImageFormat ThumbImageFormat => ImageFormat.Jpg;
+
+        //Display Thumbnail image for Plugin Catalogue  - you will need to change build action for thumb.jpg to embedded Resource
+        public Stream GetThumbImage()
+        {
+            Type type = GetType();
+            return type.Assembly.GetManifestResourceStream(type.Namespace + ".thumb.jpg");
+        }
     }
 }
