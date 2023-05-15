@@ -17,6 +17,7 @@
 		<None Remove="Configuration\customcssjs_provider.js" />
 		<None Remove="Configuration\customcssjs_provider_update.html" />
 		<None Remove="Configuration\customcssjs_provider_update.js" />
+		<None Remove="thumb.jpg" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -28,10 +29,16 @@
 		<EmbeddedResource Include="Configuration\customcssjs_provider.js" />
 		<EmbeddedResource Include="Configuration\customcssjs_provider_update.html" />
 		<EmbeddedResource Include="Configuration\customcssjs_provider_update.js" />
+		<EmbeddedResource Include="thumb.jpg" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<PackageReference Include="mediabrowser.server.core" Version="4.8.0.24-beta" />	
 	</ItemGroup>
+
+  <!--//This automatically will load the dll from you r project into the Emby Plugin folderServer -->
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="xcopy &quot;$(TargetPath)&quot; &quot;%25AppData%25\Emby-Server\programdata\plugins&quot; /Y" />
+  </Target>
 
 </Project>
