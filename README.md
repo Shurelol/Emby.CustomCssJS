@@ -22,5 +22,4 @@
   ![photo_2023-05-14_21-45-22](https://github.com/Shurelol/Emby.CustomCssJS/assets/16237201/25309616-bfa1-464c-94a8-e29e500d5278)
 
 - 控制台中可查看脚本加载情况
-
-
+  ![image](https://github.com/Shurelol/Emby.CustomCssJS/assets/16237201/7874ebc0-806a-4d08-b3f3-d4b46809c5d7)
