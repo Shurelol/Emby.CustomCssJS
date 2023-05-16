@@ -33,8 +33,8 @@ define([
     }
   
     function update(name, type, source, forceflag=false) {
-      let url = Dashboard.getConfigurationResourceUrl('customcssjs_update') + `&cname=${name}&type=${type}&source=${source}&forceflag=${forceflag}`;
-      embyRouter.show(url);
+      let url = Dashboard.getConfigurationResourceUrl('customcssjs_update').split("/");
+      embyRouter.show(url.pop() + `&cname=${name}&type=${type}&source=${source}&forceflag=${forceflag}`);
     }
   
     function renderConfiguration(config, type, source) {

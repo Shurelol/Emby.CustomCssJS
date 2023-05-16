@@ -79,13 +79,15 @@
       toast(`${name} saved`);
       editor.destroy();
       editor.container.remove();
-      embyRouter.show(Dashboard.getConfigurationResourceUrl('customcssjs'));
+      let url = Dashboard.getConfigurationResourceUrl('customcssjs').split("/");
+      embyRouter.show(url.pop());
     }
 
     function init_editor() {
       if (!window.ace) {
         let xhr = new XMLHttpRequest();
-        xhr.open('GET', Dashboard.getConfigurationResourceUrl('customcssjs_ace'), false);
+        let url = Dashboard.getConfigurationResourceUrl('customcssjs_ace');
+        xhr.open('GET', url, false);
         xhr.send();
         let acejs = new Function(xhr.responseText);
         acejs();

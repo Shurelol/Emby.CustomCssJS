@@ -18683,8 +18683,8 @@ var EventEmitter = require("../lib/event_emitter").EventEmitter;
 var config = require("../config");
 
 function $workerBlob(workerUrl) {
-    workerUrl = Dashboard.getConfigurationResourceUrl(`customcssjs_ace_${workerUrl.replace(".js", "")}`);
-    var script = "importScripts('" + net.qualifyURL(workerUrl) + "');";
+    let url = Dashboard.getConfigurationResourceUrl(`customcssjs_ace_${workerUrl.replace(".js", "")}`);
+    var script = "importScripts('" + net.qualifyURL(url) + "');";
     try {
         return new Blob([script], {"type": "text/javascript"});
     } catch (e) { // Backwards-compatibility
