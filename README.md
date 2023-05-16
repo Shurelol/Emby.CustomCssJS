@@ -24,3 +24,9 @@
 - 控制台中可查看脚本加载情况
 
   ![image](https://github.com/Shurelol/Emby.CustomCssJS/assets/16237201/7874ebc0-806a-4d08-b3f3-d4b46809c5d7)
+  
+- 编辑界面提供代码编辑器
+
+  ![image](https://github.com/Shurelol/Emby.CustomCssJS/assets/16237201/b6e486f9-7a08-428d-b8e4-4660d98685d7)
+  
+  ![image](https://github.com/Shurelol/Emby.CustomCssJS/assets/16237201/868d176d-366a-4f8f-b2cd-7571fe1f9b86)
