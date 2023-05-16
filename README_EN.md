@@ -25,3 +25,9 @@
 - The script loading situation showed in the console
 
   ![image](https://github.com/Shurelol/Emby.CustomCssJS/assets/16237201/0582e5a7-8539-4d4d-a360-7affe836f133)
+  
+- Code editor is provided
+
+  ![image](https://github.com/Shurelol/Emby.CustomCssJS/assets/16237201/b044e5e0-0bb9-4bc6-bdcc-ad764d1cb607)
+  
+  ![image](https://github.com/Shurelol/Emby.CustomCssJS/assets/16237201/666c385c-457b-4949-ae32-25c8bf6621ae)
