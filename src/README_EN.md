@@ -1,6 +1,6 @@
 [中文](README.md)
 ### modify back-end (Server)
-- Copy `src\Emby.CustomCssJS.dll` to `system\plugins`
+- Copy `src\Emby.CustomCssJS.dll` to `programdata\plugins`
 
 ### modify front-end (Server and Client)
 - Server

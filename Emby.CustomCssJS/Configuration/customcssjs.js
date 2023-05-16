@@ -32,8 +32,8 @@ define([
       });
     }
   
-    function update(name, type, source) {
-      let url = Dashboard.getConfigurationResourceUrl('customcssjs_update') + `&cname=${name}&type=${type}&source=${source}`;
+    function update(name, type, source, forceflag=false) {
+      let url = Dashboard.getConfigurationResourceUrl('customcssjs_update') + `&cname=${name}&type=${type}&source=${source}&forceflag=${forceflag}`;
       embyRouter.show(url);
     }
   
@@ -98,10 +98,14 @@ define([
           dateNode.innerText = detail.date;
           // set edit button
           let editBtnNode = templateNode.querySelector(".customcssjsEditBtn");
-          detail.state === "forced_on" ? editBtnNode.remove()
-            : editBtnNode.addEventListener("click", function () {
-              update(detail.name, type, source)
-            });
+          let forceflag = false;
+          if (detail.state === "forced_on") {
+            editBtnNode.innerText = "visibility";
+            forceflag = true;
+          }
+          editBtnNode.addEventListener("click", function () {
+            update(detail.name, type, source, forceflag)
+          });
           // set delete button
           let delBtnNode = templateNode.querySelector(".customcssjsDelBtn");
           source === "Server" ? delBtnNode.remove()

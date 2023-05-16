@@ -6,7 +6,6 @@
   "emby-input",
   "emby-button",
   "emby-select",
-  "emby-textarea",
 ], function (
   loading,
   alert,
@@ -25,13 +24,21 @@
     function save(type, source, nameOld) {
       let name = view.querySelector(`#customjscssName`).value;
       let state = view.querySelector(`#customjscssState`).value;
+      let editor = window.ace.edit("customjscssContent");
       let customConfigName;
       if (source === "Local") {
         let description = view.querySelector(`#customjscssDescription`).value;
-        let content = view.querySelector(`#customjscssContent`).value;
+        let content = editor.getValue();
         if (!name) {
           alert("Name cannot be empty");
           return;
+        }
+        let annotations = editor.getSession().getAnnotations();
+        for (let annotation of annotations) {
+          if (annotation.type === "error") {
+            alert("Code error");
+            return;
+          }
         }
         let customLocal = JSON.parse(localStorage.getItem(`custom${type}Local`));
         let customLocalNew = customLocal.filter(item => item.name !== name && item.name !== nameOld);
@@ -70,8 +77,44 @@
       }
       // send message and redirect
       toast(`${name} saved`);
-      loadConfiguration("type");
-      embyRouter.show(`configurationpage?name=customcssjs`);
+      editor.destroy();
+      editor.container.remove();
+      embyRouter.show(Dashboard.getConfigurationResourceUrl('customcssjs'));
+    }
+
+    function init_editor() {
+      if (!window.ace) {
+        let xhr = new XMLHttpRequest();
+        xhr.open('GET', Dashboard.getConfigurationResourceUrl('customcssjs_ace'), false);
+        xhr.send();
+        let acejs = new Function(xhr.responseText);
+        acejs();
+        window.ace = ace;
+      }
+      let editor = window.ace.edit("customjscssContent");
+      let rootStyle = getComputedStyle(document.documentElement);
+      let colorNow = rootStyle.getPropertyValue('--theme-accent-text-color').toString();
+      let colorLight = rootStyle.getPropertyValue('--theme-accent-text-color-lightbg').toString();
+      let colorDark = rootStyle.getPropertyValue('--theme-accent-text-color-darkbg').toString();
+      let theme;
+      if (colorNow.includes(colorDark)) {
+        theme = "one_dark";
+      } else if (colorNow.includes(colorLight)) {
+        theme = "xcode";
+      } else {
+        theme = "one_dark";
+      }
+      editor.setTheme(`ace/theme/${theme}`);
+      editor.setFontSize(15);
+      editor.setOption("wrap", "free");
+      editor.setOptions({
+          fontFamily: "Consolas, Monaco, monospace",
+          enableBasicAutocompletion: true,
+          enableSnippets: true,
+          enableLiveAutocompletion: true,
+      });
+      editor.setShowPrintMargin(false);
+      return editor;
     }
 
     function renderConfiguration(type, source, name, description, state, content) {
@@ -84,12 +127,30 @@
       descriptionNode.value = description;
       descriptionNode.readOnly = (source === "Server");
       // set state
-      let stateNode = view.querySelector(`#customjscssState`);
-      stateNode.value = state;
+      let stateDivNode = view.querySelector(`#customjscssStateDiv`);
+      if (params.forceflag) {
+        stateDivNode.classList.add("hide");
+      } else {
+        stateDivNode.classList.remove("hide");
+        let stateNode = view.querySelector(`#customjscssState`);
+        stateNode.value = state;
+      }
       // set content
-      let contentNode = view.querySelector(`#customjscssContent`);
-      contentNode.value = content;
-      contentNode.readOnly = (source === "Server");
+      let editor = init_editor();
+      let mode;
+      switch (type) {
+        case "css":
+          mode = "ace/mode/css";
+          break;
+        case "js":
+          mode = "ace/mode/javascript";
+          break;
+        default:
+          mode = "ace/mode/javascript";
+      }
+      editor.session.setMode(mode);
+      editor.setReadOnly(source === "Server");
+      editor.setValue(content);
     }
 
     function loadConfiguration(type, source, name) {
@@ -119,12 +180,19 @@
       let type = params.type;
       let source = params.source;
       let name = params.cname;
+      params.forceflag = params.forceflag !== "false";
       loadConfiguration(type, source, name);
       // set save btn
-      let saveBtnNode = view.querySelector("#customjscssSaveBtn");
-      saveBtnNode.addEventListener("click", function () {
-        save(type, source, name);
-      });
+      let saveBtnDivNode = view.querySelector("#customjscssSaveBtnDiv");
+      if (params.forceflag) {
+        saveBtnDivNode.classList.add("hide");
+      } else {
+        saveBtnDivNode.classList.remove("hide");
+        let saveBtnNode = view.querySelector("#customjscssSaveBtn");
+        saveBtnNode.addEventListener("click", function () {
+          save(type, source, name);
+        });
+      }
       loading.hide();
     }
 
@@ -133,6 +201,10 @@
     view.addEventListener("viewshow", function () {
       loading.show();
       renderView(params);
+    });
+
+    view.addEventListener("viewbeforehide", function () {
+      view.querySelector(`#customjscssContent`).remove();
     });
 
     view.querySelector('form').addEventListener('submit', onSubmit);

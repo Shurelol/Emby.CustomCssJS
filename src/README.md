@@ -1,6 +1,6 @@
 [English](README_EN.md)
 ### 修改后端（服务端）
-- 复制`src\Emby.CustomCssJS.dll`到`system\plugins`
+- 复制`src\Emby.CustomCssJS.dll`到`programdata\plugins`
 
 ### 修改前端（服务端和客户端）
 - 服务端

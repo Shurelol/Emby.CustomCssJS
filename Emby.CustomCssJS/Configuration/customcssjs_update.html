@@ -8,7 +8,14 @@
         <div data-role="content">
             <div class="content-primary">
 
-                <form id="customcssjsConfigurationForm">
+                <form id="customcssjsConfigurationForm" style="max-width: unset">
+                    <div id="customjscssSaveBtnDiv">
+                        <button id="customjscssSaveBtn" is="emby-button" type="submit" class="raised button-submit block" style="max-width: 90ch">
+                            <i class="md-icon button-icon button-icon button-icon-left">save</i>
+                            <span>Save</span>
+                        </button>
+                        <br>
+                    </div>
 
                     <div class="verticalSection">
                         <div class="inputContainer" style="max-width: 90ch">
@@ -20,30 +27,18 @@
                             <input id="customjscssDescription" is="emby-input" type="text" step="1" class="emby-input">
                             <br>
 
-                            <label class="inputLabel" for="customjscssState">State: </label>
-                            <select id="customjscssState" is="emby-select" class="emby-select">
-                                <option value="off">Off</option>
-                                <option value="on">On</option>
-                            </select>
-                            <br>
+                            <div id="customjscssStateDiv">
+                                <label class="inputLabel" for="customjscssState">State: </label>
+                                <select id="customjscssState" is="emby-select" class="emby-select">
+                                    <option value="off">Off</option>
+                                    <option value="on">On</option>
+                                </select>
+                            </div>
                         </div>
 
                         <div class="inputContainer">
                             <label class="inputLabel" for="customjscssContent">Content: </label>
-                            <textarea id="customjscssContent" is="emby-textarea" class="textarea-mono" style="min-height: 50rem;"></textarea>
-<!--                            <div id="customjscssContent" is="emby-textarea" class="emby-textarea" style="min-height: 65rem;"></div>-->
-                            <br>
-
-<!--                            <button id="customjscssFormatBtn" is="emby-button" type="submit" class="raised emby-button block">-->
-<!--                                <i class="md-icon button-icon button-icon button-icon-left">transform</i>-->
-<!--                                <span>Format</span>-->
-<!--                            </button>-->
-<!--                            <br>-->
-
-                            <button id="customjscssSaveBtn" is="emby-button" type="submit" class="raised button-submit block">
-                                <i class="md-icon button-icon button-icon button-icon-left">save</i>
-                                <span>Save</span>
-                            </button>
+                            <div id="customjscssContent" style="min-height: 60rem; z-index: 0"></div>
                         </div>
                     </div>
                 </form>

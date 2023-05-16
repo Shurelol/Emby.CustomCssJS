@@ -5,7 +5,6 @@
   "emby-input",
   "emby-button",
   "emby-select",
-  "emby-textarea",
 ], function (
   loading,
   alert,
@@ -24,13 +23,21 @@
       let name = view.querySelector(`#customjscssName`).value;
       let description = view.querySelector(`#customjscssDescription`).value;
       let state = view.querySelector(`#customjscssState`).value;
-      let content = view.querySelector(`#customjscssContent`).value;
+      let editor = window.ace.edit("customjscssContent");
+      let content = editor.getValue();
       if (!name) {
         alert("Name cannot be empty");
         return;
       }
+      let annotations = editor.getSession().getAnnotations();
+      for (let annotation of annotations) {
+        if (annotation.type === "error") {
+          alert("Code error");
+          return;
+        }
+      }
       ApiClient.getPluginConfiguration(pluginUniqueId).then(function (config) {
-        let customPart = config[`custom${params.type}`];
+        let customPart = config[`custom${type}`];
         let customPartNew = customPart.filter(item => item.name !== name && item.name !== nameOld);
         if (!nameOld) {
           // add
@@ -55,9 +62,46 @@
         config[`custom${params.type}`] = customPartNew;
         ApiClient.updatePluginConfiguration(pluginUniqueId, config).then(function (result) {
           Dashboard.processPluginConfigurationUpdateResult(result);
-          embyRouter.show(`configurationpage?name=customcssjs_provider`);
+          editor.destroy();
+          editor.container.remove();
+          embyRouter.show(Dashboard.getConfigurationResourceUrl('customcssjs_provider'));
         });
       });
+    }
+
+    function init_editor() {
+      if (!window.ace) {
+        let xhr = new XMLHttpRequest();
+        xhr.open('GET', Dashboard.getConfigurationResourceUrl('customcssjs_ace'), false);
+        xhr.send();
+        let acejs = new Function(xhr.responseText);
+        acejs();
+        window.ace = ace;
+      }
+      let editor = window.ace.edit("customjscssContent");
+      let rootStyle = getComputedStyle(document.documentElement);
+      let colorNow = rootStyle.getPropertyValue('--theme-accent-text-color').toString();
+      let colorLight = rootStyle.getPropertyValue('--theme-accent-text-color-lightbg').toString();
+      let colorDark = rootStyle.getPropertyValue('--theme-accent-text-color-darkbg').toString();
+      let theme;
+      if (colorNow.includes(colorDark)) {
+        theme = "one_dark";
+      } else if (colorNow.includes(colorLight)) {
+        theme = "xcode";
+      } else {
+        theme = "one_dark";
+      }
+      editor.setTheme(`ace/theme/${theme}`);
+      editor.setFontSize(15);
+      editor.setOption("wrap", "free");
+      editor.setOptions({
+          fontFamily: "Consolas, Monaco, monospace",
+          enableBasicAutocompletion: true,
+          enableSnippets: true,
+          enableLiveAutocompletion: true,
+      });
+      editor.setShowPrintMargin(false);
+      return editor;
     }
 
     function renderConfiguration(type, name, description, state, content) {
@@ -71,8 +115,21 @@
       let stateNode = view.querySelector(`#customjscssState`);
       stateNode.value = state;
       // set content
-      let contentNode = view.querySelector(`#customjscssContent`);
-      contentNode.value = content;
+      let editor = init_editor();
+      let mode;
+      switch (type) {
+        case "css":
+          mode = "ace/mode/css";
+          break;
+        case "js":
+          mode = "ace/mode/javascript";
+          break;
+        default:
+          mode = "ace/mode/javascript";
+      }
+      editor.session.setMode(mode);
+      editor.setReadOnly(false);
+      editor.setValue(content);
     }
 
     function loadConfiguration(type, name) {
@@ -104,6 +161,10 @@
     view.addEventListener("viewshow", function () {
       loading.show();
       renderView(params);
+    });
+
+    view.addEventListener("viewbeforehide", function () {
+      view.querySelector(`#customjscssContent`).remove();
     });
 
     view.querySelector('form').addEventListener('submit', onSubmit);
