@@ -33,7 +33,8 @@ namespace Emby.CustomCssJS
                     EnableInMainMenu = false,
                     EnableInUserMenu = true,
                     IsMainConfigPage = true,
-                    MenuIcon = "tune"
+                    MenuIcon = "tune",
+                    FeatureId = "customcssjs"
                 },
                 new PluginPageInfo
                 {
@@ -45,9 +46,6 @@ namespace Emby.CustomCssJS
                     Name = "customcssjs_update",
                     DisplayName = "Custom Css and JavaScript",
                     EmbeddedResourcePath = GetType().Namespace + ".Configuration.customcssjs_update.html",
-                    EnableInMainMenu = false,
-                    EnableInUserMenu = false,
-                    IsMainConfigPage = false,
                 },
                 new PluginPageInfo
                 {
@@ -75,9 +73,6 @@ namespace Emby.CustomCssJS
                     Name = "customcssjs_provider_update",
                     DisplayName = "CustomCssJS Provider",
                     EmbeddedResourcePath = GetType().Namespace + ".Configuration.customcssjs_provider_update.html",
-                    EnableInMainMenu = false,
-                    EnableInUserMenu = false,
-                    IsMainConfigPage = false,
                 },
                 new PluginPageInfo
                 {
