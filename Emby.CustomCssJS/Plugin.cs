@@ -83,6 +83,21 @@ namespace Emby.CustomCssJS
                 {
                     Name = "customcssjs_provider_updatejs",
                     EmbeddedResourcePath = GetType().Namespace + ".Configuration.customcssjs_provider_update.js",
+                },
+                new PluginPageInfo
+                {
+                    Name = "customcssjs_ace",
+                    EmbeddedResourcePath = GetType().Namespace + ".Configuration.customcssjs_ace.js",
+                },
+                new PluginPageInfo
+                {
+                    Name = "customcssjs_ace_worker-javascript",
+                    EmbeddedResourcePath = GetType().Namespace + ".Configuration.customcssjs_ace_worker-javascript.js",
+                },
+                new PluginPageInfo
+                {
+                    Name = "customcssjs_ace_worker-css",
+                    EmbeddedResourcePath = GetType().Namespace + ".Configuration.customcssjs_ace_worker-css.js",
                 }
             };
         }

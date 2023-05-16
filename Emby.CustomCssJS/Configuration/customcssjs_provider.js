@@ -35,7 +35,8 @@ define([
     }
 
     function update(name, type) {
-      embyRouter.show(`configurationpage?name=customcssjs_provider_update&cname=${name}&type=${type}`);
+      let url = Dashboard.getConfigurationResourceUrl('customcssjs_provider_update') + `&cname=${name}&type=${type}`;
+      embyRouter.show(url);
     }
 
     function renderConfiguration(config, type) {

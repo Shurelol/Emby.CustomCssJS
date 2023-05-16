@@ -17,6 +17,9 @@
 		<None Remove="Configuration\customcssjs_provider.js" />
 		<None Remove="Configuration\customcssjs_provider_update.html" />
 		<None Remove="Configuration\customcssjs_provider_update.js" />
+		<None Remove="Configuration\customcssjs_ace.js" />
+		<None Remove="Configuration\customcssjs_ace_worker-javascript.js" />
+		<None Remove="Configuration\customcssjs_ace_worker-css.js" />
 		<None Remove="thumb.jpg" />
 	</ItemGroup>
 
@@ -29,6 +32,9 @@
 		<EmbeddedResource Include="Configuration\customcssjs_provider.js" />
 		<EmbeddedResource Include="Configuration\customcssjs_provider_update.html" />
 		<EmbeddedResource Include="Configuration\customcssjs_provider_update.js" />
+		<EmbeddedResource Include="Configuration\customcssjs_ace.js" />
+		<EmbeddedResource Include="Configuration\customcssjs_ace_worker-javascript.js" />
+		<EmbeddedResource Include="Configuration\customcssjs_ace_worker-css.js" />
 		<EmbeddedResource Include="thumb.jpg" />
 	</ItemGroup>
 
