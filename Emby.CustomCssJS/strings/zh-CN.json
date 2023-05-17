@@ -1,0 +1,21 @@
+{
+    "Code error" :"代码错误",
+    "Content:" :"内容：",
+    "Custom Css" :"自定义Css",
+    "Custom JavaScript" :"自定义JavaScript",
+    "deleted" :"已删除",
+    "Description:" :"描述：",
+    "For current Client" :"应用于当前客户端",
+    "Forced On" :"强制使用",
+    "From Local" :"来自本地",
+    "From Server" :"来自服务器",
+    "Load Scripts" :"载入",
+    "Name:" :"名称：",
+    "Name cannot be empty" :"名称不能为空",
+    "Name already exists" :"名称已存在",
+    "On" :"开",
+    "Please Note Cross-Site Scripting Attacks" :"请注意跨站脚本攻击",
+    "Provided for All users" :"提供给所有用户",
+    "saved" :"已保存",
+    "State:" :"状态："
+}

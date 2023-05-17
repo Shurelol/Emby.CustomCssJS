@@ -1,4 +1,5 @@
 define([
+  "globalize",
   "loading",
   "confirm",
   "embyRouter",
@@ -6,6 +7,7 @@ define([
   "emby-button",
   "emby-select",
 ], function (
+  globalize,
   loading,
   confirm,
   embyRouter,
@@ -20,7 +22,7 @@ define([
     }
 
     function del(name, type) {
-      confirm(`Are you sure you want to delete?`, `Delete ${name}`).then(function () {
+      confirm(`${globalize.translate('Delete')} ${name}`).then(function () {
           loading.show();
           ApiClient.getPluginConfiguration(pluginUniqueId).then(function (config) {
             let customPart = config[`custom${type}`];
@@ -55,20 +57,23 @@ define([
           let stateNode = templateNode.querySelector(".customcssjsState");
           switch (detail.state) {
             case "forced_on":
-              stateNode.setAttribute("title", "Forced on");
-              stateNode.setAttribute("aria-label", "Forced on");
+              let translationForcedOn = globalize.translate("Forced On");
+              stateNode.setAttribute("title", translationForcedOn);
+              stateNode.setAttribute("aria-label", translationForcedOn);
               stateNode.style.color = "var(--theme-accent-text-color)";
               stateNode.innerText = "check_circle";
               break;
             case "on":
-              stateNode.setAttribute("title", "On");
-              stateNode.setAttribute("aria-label", "On");
+              let translationOn = globalize.translate("On");
+              stateNode.setAttribute("title", translationOn);
+              stateNode.setAttribute("aria-label", translationOn);
               stateNode.style.color = "var(--theme-accent-text-color)";
               stateNode.innerText = "check";
               break;
             case "off":
-              stateNode.setAttribute("title", "Off");
-              stateNode.setAttribute("aria-label", "Off");
+              let translationOff = globalize.translate("Off");
+              stateNode.setAttribute("title", translationOff);
+              stateNode.setAttribute("aria-label", translationOff);
               stateNode.classList.add("secondaryText");
               stateNode.innerText = "close";
               break;

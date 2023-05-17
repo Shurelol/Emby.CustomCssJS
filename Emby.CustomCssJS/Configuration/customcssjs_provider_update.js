@@ -1,4 +1,5 @@
 ﻿define([
+  "globalize",
   "loading",
   "alert",
   "embyRouter",
@@ -6,6 +7,7 @@
   "emby-button",
   "emby-select",
 ], function (
+  globalize,
   loading,
   alert,
   embyRouter,
@@ -26,13 +28,13 @@
       let editor = window.ace.edit("customjscssContent");
       let content = editor.getValue();
       if (!name) {
-        alert("Name cannot be empty");
+        alert(globalize.translate("Name cannot be empty"));
         return;
       }
       let annotations = editor.getSession().getAnnotations();
       for (let annotation of annotations) {
         if (annotation.type === "error") {
-          alert("Code error");
+          alert(globalize.translate("Code error"));
           return;
         }
       }
@@ -42,13 +44,13 @@
         if (!nameOld) {
           // add
           if (customPart.length !== customPartNew.length) {
-            alert("Name already exists");
+            alert(globalize.translate("Name already exists"));
             return;
           }
         } else {
           // edit
           if (customPart.length - 1 !== customPartNew.length) {
-            alert("Name already exists");
+            alert(globalize.translate("Name already exists"));
             return;
           }
         }

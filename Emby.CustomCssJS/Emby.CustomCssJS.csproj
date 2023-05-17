@@ -20,6 +20,7 @@
 		<None Remove="Configuration\customcssjs_ace.js" />
 		<None Remove="Configuration\customcssjs_ace_worker-javascript.js" />
 		<None Remove="Configuration\customcssjs_ace_worker-css.js" />
+		<None Remove="strings\zh-CN.json" />
 		<None Remove="thumb.jpg" />
 	</ItemGroup>
 
@@ -35,6 +36,7 @@
 		<EmbeddedResource Include="Configuration\customcssjs_ace.js" />
 		<EmbeddedResource Include="Configuration\customcssjs_ace_worker-javascript.js" />
 		<EmbeddedResource Include="Configuration\customcssjs_ace_worker-css.js" />
+		<EmbeddedResource Include="strings\zh-CN.json" />
 		<EmbeddedResource Include="thumb.jpg" />
 	</ItemGroup>
 

@@ -12,31 +12,39 @@
                     <div>
                         <button id="customjscssSaveBtn" is="emby-button" type="submit" class="raised button-submit block" style="max-width: 90ch">
                                 <i class="md-icon button-icon button-icon button-icon-left">save</i>
-                                <span>Save</span>
+                                <span>${Save}</span>
                         </button>
                         <br>
                     </div>
 
                     <div class="verticalSection">
                         <div class="inputContainer" style="max-width: 90ch">
-                            <label class="inputLabel" for="customjscssName">Name: </label>
+                            <label class="inputLabel" for="customjscssName">${Name:}</label>
                             <input id="customjscssName" is="emby-input" type="text" step="1" class="emby-input">
                             <br>
 
-                            <label class="inputLabel" for="customjscssDescription">Description: </label>
+                            <label class="inputLabel" for="customjscssDescription">${Description:}</label>
                             <input id="customjscssDescription" is="emby-input" type="text" step="1" class="emby-input">
                             <br>
 
-                            <label class="inputLabel" for="customjscssState">State: </label>
+                            <label class="inputLabel" for="customjscssState">${State:}</label>
                             <select id="customjscssState" is="emby-select" class="emby-select">
-                                <option value="off">Off</option>
-                                <option value="on">On</option>
-                                <option value="forced_on">Forced On</option>
+                                <option value="off">${Off}</option>
+                                <option value="on">${On}</option>
+                                <option value="forced_on">${Forced On}</option>
                             </select>
+                            <br>
+
+                            <div class="warningBanner">
+                                <i class="md-icon warningBannerIcon">warning</i>
+                                <span class="warningBannerText">${Please Note Cross-Site Scripting Attacks}</span>
+                            </div>
                         </div>
 
+
+
                         <div class="inputContainer">
-                            <label class="inputLabel" for="customjscssContent">Content: </label>
+                            <label class="inputLabel" for="customjscssContent">${Content:}</label>
                             <div id="customjscssContent" style="min-height: 70em; z-index: 0"></div>
                         </div>
                     </div>

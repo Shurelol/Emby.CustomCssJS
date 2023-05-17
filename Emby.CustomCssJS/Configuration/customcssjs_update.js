@@ -1,4 +1,5 @@
 ﻿define([
+  "globalize",
   "loading",
   "alert",
   "toast",
@@ -7,6 +8,7 @@
   "emby-button",
   "emby-select",
 ], function (
+  globalize,
   loading,
   alert,
   toast,
@@ -30,13 +32,13 @@
         let description = view.querySelector(`#customjscssDescription`).value;
         let content = editor.getValue();
         if (!name) {
-          alert("Name cannot be empty");
+          alert(globalize.translate("Name cannot be empty"));
           return;
         }
         let annotations = editor.getSession().getAnnotations();
         for (let annotation of annotations) {
           if (annotation.type === "error") {
-            alert("Code error");
+            alert(globalize.translate("Code error"));
             return;
           }
         }
@@ -45,13 +47,13 @@
         if (!nameOld) {
           // add
           if (customLocal.length !== customLocalNew.length) {
-            alert("Name already exists");
+            alert(globalize.translate("Name already exists"));
             return;
           }
         } else {
           // edit
           if (customLocal.length - 1 !== customLocalNew.length) {
-            alert("Name already exists");
+            alert(globalize.translate("Name already exists"));
             return;
           }
         }
@@ -76,7 +78,7 @@
         localStorage.setItem(customConfigName, JSON.stringify(customConfig));
       }
       // send message and redirect
-      toast(`${name} saved`);
+      toast(`${name} ${globalize.translate('saved')}`);
       editor.destroy();
       editor.container.remove();
       let url = Dashboard.getConfigurationResourceUrl('customcssjs').split("/");

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using System.Collections.Generic;
 using MediaBrowser.Common.Configuration;
 using MediaBrowser.Model.Serialization;
@@ -13,7 +14,7 @@ using MediaBrowser.Model.Drawing;
 namespace Emby.CustomCssJS
 {
     /// <summary>Class Plugin</summary>
-    public class Plugin : MediaBrowser.Common.Plugins.BasePlugin<PluginConfiguration>, IHasWebPages, IHasThumbImage
+    public class Plugin : MediaBrowser.Common.Plugins.BasePlugin<PluginConfiguration>, IHasWebPages, IHasThumbImage, IHasTranslations
     {
         public Plugin(IApplicationPaths applicationPaths, IXmlSerializer xmlSerializer) 
             : base(applicationPaths, xmlSerializer)
@@ -28,7 +29,7 @@ namespace Emby.CustomCssJS
                 new PluginPageInfo
                 {
                     Name = "customcssjs",
-                    DisplayName = "Custom Css and JavaScript",
+                    DisplayName = "Custom Css and JavaScrip}",
                     EmbeddedResourcePath = GetType().Namespace + ".Configuration.customcssjs.html",
                     EnableInMainMenu = false,
                     EnableInUserMenu = true,
@@ -113,6 +114,22 @@ namespace Emby.CustomCssJS
         /// <summary>Gets the instance.</summary>
         /// <value>The instance.</value>
         public static Plugin Instance { get; private set; }
+
+        public TranslationInfo[] GetTranslations()
+        {
+            var basePath = GetType().Namespace + ".strings.";
+
+            return GetType()
+                .Assembly
+                .GetManifestResourceNames()
+                .Where(i => i.StartsWith(basePath, StringComparison.OrdinalIgnoreCase))
+                .Select(i => new TranslationInfo
+                {
+                    Locale = Path.GetFileNameWithoutExtension(i.Substring(basePath.Length)),
+                    EmbeddedResourcePath = i
+
+                }).ToArray();
+        }
 
         public ImageFormat ThumbImageFormat => ImageFormat.Jpg;
 

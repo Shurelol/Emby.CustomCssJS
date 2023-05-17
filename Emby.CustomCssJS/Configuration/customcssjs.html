@@ -4,58 +4,58 @@
     <title>Custom Css and JavaScript</title>
 </head>
 <body>
-    <div id="customcssjsConfigurationPage" data-role="page" class="page type-interior pluginConfigurationPage" data-controller="__plugin/customcssjsjs">
+    <div id="customcssjsConfigurationPage" data-role="page" class="page type-interior pluginConfigurationPage" data-controller="__plugin/customcssjsjs" data-helpurl="https://github.com/Shurelol/Emby.CustomCssJS">
         <div data-role="content">
             <div class="content-primary">
 
                 <form id="customcssjsConfigurationForm">
                     <div>
                         <button id="customcssjsLoadBtn" is="emby-button" type="submit" class="raised button-submit block">
-                            <span>Load Scripts</span>
+                            <span>${Load Scripts}</span>
                         </button>
                     </div>
                     <br>
 
                     <div class="sectionTitleContainer sectionTitleContainer-cards">
                         <h2 class="sectionTitle sectionTitle-cards">
-                            <span>Custom JavaScript</span>
+                            <span>${Custom JavaScript}</span>
                         </h2>
                         <button is="emby-button" id="customjsAddBtn" value="0" type="button" class="raised raised-mini btnAddDevice submit sectionTitleButton emby-button emby-button-backdropfilter raised-backdropfilter" style="margin-left:1em;">
                             <i class="md-icon button-icon button-icon button-icon-left">add</i>
-                            <span>Add</span>
+                            <span>${Add}</span>
                         </button>
                     </div>
-                    <div class="fieldDescription" style="margin-left: 0.5rem; margin-top: 1rem">For current Client</div>
+                    <div class="fieldDescription" style="margin-left: 0.5rem; margin-top: 1rem">${For current Client}</div>
                     <br>
 
                     <div id="customjsListServer" is="emby-itemscontainer" class="itemsContainer flex-direction-column flex flex-grow"></div>
-                    <div id="customjsListServerDescription" class="fieldDescription" style="margin-left: 0.5rem; margin-top: 1rem">Provide by Server</div>
+                    <div id="customjsListServerDescription" class="fieldDescription" style="margin-left: 0.5rem; margin-top: 1rem">${From Server}</div>
                     <br>
 
                     <div id="customjsListLocal" is="emby-itemscontainer" class="itemsContainer flex-direction-column flex flex-grow"></div>
-                    <div id="customjsListLocalDescription" class="fieldDescription" style="margin-left: 0.5rem; margin-top: 1rem">Provide by Local</div>
+                    <div id="customjsListLocalDescription" class="fieldDescription" style="margin-left: 0.5rem; margin-top: 1rem">${From Local}</div>
                     <br>
                     <br>
 
 
                     <div class="sectionTitleContainer sectionTitleContainer-cards">
                         <h2 class="sectionTitle sectionTitle-cards">
-                            <span>Custom Css</span>
+                            <span>${Custom Css}</span>
                         </h2>
                         <button is="emby-button" id="customcssAddBtn" value="0" type="button" class="raised raised-mini btnAddDevice submit sectionTitleButton emby-button emby-button-backdropfilter raised-backdropfilter" style="margin-left:1em;">
                             <i class="md-icon button-icon button-icon button-icon-left">add</i>
-                            <span>Add</span>
+                            <span>${Add}</span>
                         </button>
                     </div>
-                    <div class="fieldDescription" style="margin-left: 0.5rem; margin-top: 1rem">For current Client</div>
+                    <div class="fieldDescription" style="margin-left: 0.5rem; margin-top: 1rem">${For current Client}</div>
                     <br>
 
                     <div id="customcssListServer" is="emby-itemscontainer" class="itemsContainer flex-direction-column flex flex-grow"></div>
-                    <div id="customcssListServerDescription" class="fieldDescription" style="margin-left: 0.5rem; margin-top: 1rem">Provide by Server</div>
+                    <div id="customcssListServerDescription" class="fieldDescription" style="margin-left: 0.5rem; margin-top: 1rem">${From Server}</div>
                     <br>
 
                     <div id="customcssListLocal" is="emby-itemscontainer" class="itemsContainer flex-direction-column flex flex-grow"></div>
-                    <div id="customcssListLocalDescription" class="fieldDescription" style="margin-left: 0.5rem; margin-top: 1rem">Provide by Local</div>
+                    <div id="customcssListLocalDescription" class="fieldDescription" style="margin-left: 0.5rem; margin-top: 1rem">${From Local}</div>
                     <br>
 
 
@@ -68,8 +68,8 @@
                                 <div class="listItemBodyText listItemBodyText-nowrap listItemBodyText-lf listItemBodyText-secondary customcssjsDescription"></div>
                                 <div class="listItemBodyText listItemBodyText-nowrap listItemBodyText-lf listItemBodyText-secondary customcssjsDate"></div>
                             </div>
-                            <button title="edit" aria-label="edit" type="button" is="paper-icon-button-light" class="listItemButton itemAction md-icon paper-icon-button-light customcssjsEditBtn">edit</button>
-                            <button title="delete" aria-label="delete" type="button" is="paper-icon-button-light" class="listItemButton itemAction md-icon paper-icon-button-light customcssjsDelBtn">delete</button>
+                            <button type="button" is="paper-icon-button-light" class="listItemButton itemAction md-icon paper-icon-button-light customcssjsEditBtn">edit</button>
+                            <button type="button" is="paper-icon-button-light" class="listItemButton itemAction md-icon paper-icon-button-light customcssjsDelBtn">delete</button>
                         </div>
                     </div>
 

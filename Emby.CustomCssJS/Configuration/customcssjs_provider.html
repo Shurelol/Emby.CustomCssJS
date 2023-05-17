@@ -4,7 +4,7 @@
     <title>Custom Css and JavaScript</title>
 </head>
 <body>
-    <div id="customcssjsConfigurationPage" data-role="page" class="page type-interior pluginConfigurationPage" data-controller="__plugin/customcssjs_providerjs">
+    <div id="customcssjsConfigurationPage" data-role="page" class="page type-interior pluginConfigurationPage" data-controller="__plugin/customcssjs_providerjs" data-helpurl="https://github.com/Shurelol/Emby.CustomCssJS">
         <div data-role="content">
             <div class="content-primary">
 
@@ -12,14 +12,14 @@
 
                     <div class="sectionTitleContainer sectionTitleContainer-cards">
                         <h2 class="sectionTitle sectionTitle-cards">
-                            <span>Custom JavaScript</span>
+                            <span>${Custom JavaScript}</span>
                         </h2>
                         <button is="emby-button" id="customjsAddBtn" value="0" type="button" class="raised raised-mini btnAddDevice submit sectionTitleButton emby-button emby-button-backdropfilter raised-backdropfilter" style="margin-left:1em;">
                             <i class="md-icon button-icon button-icon button-icon-left">add</i>
-                            <span>Add</span>
+                            <span>${Add}</span>
                         </button>
                     </div>
-                    <div class="fieldDescription" style="margin-left: 0.5rem; margin-top: 1rem">Provide for All users</div>
+                    <div class="fieldDescription" style="margin-left: 0.5rem; margin-top: 1rem">${Provided for All users}</div>
                     <br>
 
                     <div id="customjsList" is="emby-itemscontainer" class="itemsContainer flex-direction-column flex flex-grow"></div>
@@ -28,14 +28,14 @@
 
                     <div class="sectionTitleContainer sectionTitleContainer-cards">
                         <h2 class="sectionTitle sectionTitle-cards">
-                            <span>Custom Css</span>
+                            <span>${Custom Css}</span>
                         </h2>
                         <button is="emby-button" id="customcssAddBtn" value="0" type="button" class="raised raised-mini btnAddDevice submit sectionTitleButton emby-button emby-button-backdropfilter raised-backdropfilter" style="margin-left:1em;">
                             <i class="md-icon button-icon button-icon button-icon-left">add</i>
-                            <span>Add</span>
+                            <span>${Add}</span>
                         </button>
                     </div>
-                    <div class="fieldDescription" style="margin-left: 0.5rem; margin-top: 1rem">Provide for All users</div>
+                    <div class="fieldDescription" style="margin-left: 0.5rem; margin-top: 1rem">${Provided for All users}</div>
                     <br>
 
                     <div id="customcssList" is="emby-itemscontainer" class="itemsContainer flex-direction-column flex flex-grow"></div>
@@ -50,8 +50,8 @@
                                 <div class="listItemBodyText listItemBodyText-nowrap listItemBodyText-lf listItemBodyText-secondary customcssjsDescription"></div>
                                 <div class="listItemBodyText listItemBodyText-nowrap listItemBodyText-lf listItemBodyText-secondary customcssjsDate"></div>
                             </div>
-                            <button title="edit" aria-label="edit" type="button" is="paper-icon-button-light" class="listItemButton itemAction md-icon paper-icon-button-light customcssjsEditBtn">edit</button>
-                            <button title="delete" aria-label="delete" type="button" is="paper-icon-button-light" class="listItemButton itemAction md-icon paper-icon-button-light customcssjsDelBtn">delete</button>
+                            <button type="button" is="paper-icon-button-light" class="listItemButton itemAction md-icon paper-icon-button-light customcssjsEditBtn">edit</button>
+                            <button type="button" is="paper-icon-button-light" class="listItemButton itemAction md-icon paper-icon-button-light customcssjsDelBtn">delete</button>
                         </div>
                     </div>
                 </form>
