@@ -29,7 +29,7 @@ namespace Emby.CustomCssJS
                 new PluginPageInfo
                 {
                     Name = "customcssjs",
-                    DisplayName = "Custom Css and JavaScrip}",
+                    DisplayName = "Custom Css and JavaScrip",
                     EmbeddedResourcePath = GetType().Namespace + ".Configuration.customcssjs.html",
                     EnableInMainMenu = false,
                     EnableInUserMenu = true,

@@ -12,14 +12,29 @@
       list.push("./modules/CustomCssJS.js"),
       Promise.all(list.map(loadPlugin))
       ```
-- 客户端
+- 桌面客户端
   - 复制`src\CustomCssJS.js`到`electronapp\www\modules`
-  - 修改`electronapp\www\modules\app.js`
+  - 修改`electronapp\www\app.js`
     - 函数`start()`中`Promise.all(list.map(loadPlugin))`前新增`list.push("./modules/CustomCssJS.js"),`  
 
       ```
       list.push("./modules/CustomCssJS.js"),
       Promise.all(list.map(loadPlugin))
+      ```
+- 移动应用（安卓）
+  - 复制`src\CustomCssJS.js`到`assets\www\modules`
+  - 修改`assets\www\app.js`
+    - 函数`start()`中`Promise.all(list.map(loadPlugin))`前新增`list.push("./modules/CustomCssJS.js"),`  
+
+      ```
+      list.push("./modules/CustomCssJS.js"),
+      Promise.all(list.map(loadPlugin))
+      ```
+  - 修改`assets\www\native\android\apphost.js`
+    - `features.restrictedplugins`设为`false`  
+
+      ```
+      features.restrictedplugins = false;
       ```
 ***
 - 服务端脚本启用信息储存在`localStorage`，键值为`customcssServerConfig_${sercerID}`和`customjsServerConfig_${sercerID}`
