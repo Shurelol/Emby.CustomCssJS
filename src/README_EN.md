@@ -13,14 +13,9 @@
       Promise.all(list.map(loadPlugin))
       ```
 - Desktop Client
-  - Copy `src\CustomCssJS.js` to `electronapp\www\modules`
-  - modify `electronapp\www\app.js`
-    - Add `list.push("./modules/CustomCssJS.js"),` before `Promise.all(list.map(loadPlugin))` in `start()`
-  
-      ```
-      list.push("./modules/CustomCssJS.js"),
-      Promise.all(list.map(loadPlugin))
-      ```
+  - Copy `src\CustomCssJS.js` to `electronapp\plugins`
+
+
 - App (Android)
   - Copy `src\CustomCssJS.js` to `assets\www\modules`
   - modify `assets\www\app.js`
