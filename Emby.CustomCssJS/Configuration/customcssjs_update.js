@@ -208,7 +208,10 @@
     });
 
     view.addEventListener("viewbeforehide", function () {
-      view.querySelector(`#customjscssContent`).remove();
+      let editor = view.querySelector(`#customjscssContent`);
+      if (editor) {
+        editor.remove();
+      }
     });
 
     view.querySelector('form').addEventListener('submit', onSubmit);
