@@ -23,11 +23,25 @@ define([
 
     function loadJS(name, content, source) {
       try {
+        let startTimer = setInterval(function () { }, 10000);
         let s = document.createElement("script");
         s.type = "text/javascript";
         s.innerHTML = content;
         document.head.appendChild(s);
-        console.warn(`load CustomJS from ${source}: ${name}`);
+        let endTimer = setInterval(function () { }, 10000);
+        let timerCount = endTimer - startTimer;
+        let timerList = [];
+        let message = `load CustomJS from ${source}: ${name}`
+        if (timerCount > 1) {
+          for (let i = startTimer + 1; i < endTimer; i++) {
+            timerList.push(i);
+          }
+          window.customcssjsTimers = window.customcssjsTimers.concat(timerList);
+          message += ` with timer ${timerList}`;
+        }
+        clearInterval(startTimer);
+        clearInterval(endTimer);
+        console.warn(message);
       } catch (e) {
         console.error(`load CustomJS from ${source} ${name} error: ${e}`);
       }
@@ -74,7 +88,19 @@ define([
       return [customServer, customLocal];
     }
 
+    function clearTimer() {
+      let customTimers = window.customcssjsTimers;
+      if (customTimers) {
+        for (let timer of customTimers) {
+          clearInterval(timer);
+        }
+        console.warn(`clear timer: ${customTimers}`);
+      }
+      window.customcssjsTimers = [];
+    }
+
     function loadConfiguration() {
+      clearTimer();
       ApiClient.getPluginConfiguration(pluginUniqueId).then(function (config) {
         let [customjsServer, customjsLocal] = getCustom("js", config);
         let [customcssServer, customcssLocal] = getCustom("css", config);
