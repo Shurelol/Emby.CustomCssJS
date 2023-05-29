@@ -79,7 +79,7 @@ define([
       let serverId = ApiClient.serverId();
       window.currentServerId = serverId;
       if (currentServerId && currentServerId !== serverId) {
-        window.location.reload();
+        window.location.href = window.location.href.replace(/(?<=index\.html).*?$/, "") + "?autostart=false";
       }
       if (currentServerId && currentServerId === serverId) {
         return;
