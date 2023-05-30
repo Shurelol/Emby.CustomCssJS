@@ -136,7 +136,11 @@ define([
     function  renderLoadBtn() {
       let loadBtnNode = view.querySelector(`#customcssjsLoadBtn`);
       loadBtnNode.addEventListener("click", function () {
+        try {
+          window.customcssjsLoadConfiguration();
+        } catch (e) {
           window.location.reload();
+        }
       });
     }
 
