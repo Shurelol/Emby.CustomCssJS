@@ -136,10 +136,28 @@ define([
     function  renderLoadBtn() {
       let loadBtnNode = view.querySelector(`#customcssjsLoadBtn`);
       loadBtnNode.addEventListener("click", function () {
-        try {
-          window.customcssjsLoadConfiguration();
-        } catch (e) {
-          window.location.reload();
+        let timerCount = Math.max(setInterval(function () {}, 1000), setTimeout(function () {}, 1000));
+        for (let i = 1; i <= timerCount; i++) {
+          clearInterval(i);
+          clearTimeout(i);
+          if (i === timerCount) {
+            document.body.remove();
+            if (typeof MainActivity === "undefined") {
+              let href = window.location.href;
+              if (href.match(/autostart=false/i)) {
+                window.location.href = `index.html?autostart=false`;
+              } else if (href.match(/autostart=true/i)) {
+                window.location.href = `index.html?autostart=true`;
+              } else {
+                window.location.reload();
+              }
+            } else {
+              MainActivity.exitApp();
+              setTimeout(function () {
+                window.open("emby://items", "_blank")
+              }, 200);
+            }
+          }
         }
       });
     }
