@@ -75,51 +75,56 @@ define([
     }
 
     function loadConfiguration() {
-      window.serverId = ApiClient.serverId();
-      ApiClient.getPluginConfiguration(pluginUniqueId).then(function (config) {
-        let [customjsServer, customjsLocal] = getCustom("js", config);
-        let [customcssServer, customcssLocal] = getCustom("css", config);
-        loadCode(customcssServer, "css", "Server");
-        loadCode(customcssLocal, "css", "Local");
-        loadCode(customjsServer, "js", "Server");
-        loadCode(customjsLocal, "js", "Local");
+      ApiClient.getJSON(ApiClient.getUrl("CustomCssJS/Scripts", {})).then((config) => {
+        if (!window.isCustomCssJSLoad) {
+          window.isCustomCssJSLoad = true;
+          let [customjsServer, customjsLocal] = getCustom("js", config);
+          let [customcssServer, customcssLocal] = getCustom("css", config);
+          loadCode(customcssServer, "css", "Server");
+          loadCode(customcssLocal, "css", "Local");
+          loadCode(customjsServer, "js", "Server");
+          loadCode(customjsLocal, "js", "Local");
+        }
+      }, () => {
+        if (window.isCustomCssJSLoad) {
+          reload();
+        }
       });
+    }
+
+    function reload() {
+      if (typeof MainActivity === "undefined") {
+        let href = window.location.href;
+        if (href.match(/autostart=false/i)) {
+          window.location.href = `index.html?autostart=false`;
+        } else if (href.match(/autostart=true/i)) {
+          window.location.href = `index.html?autostart=true`;
+        } else {
+          window.location.reload();
+        }
+      } else {
+        if (document.querySelector("#Carnival")) {
+          window.location.href = "index.html";
+        } else {
+          MainActivity.exitApp();
+          setTimeout(function () {
+            window.open("emby://items", "_blank")
+          }, 150);
+        }
+      }
     }
 
     function loadCustomCssJS() {
       return function () {
         let serverId = ApiClient.serverId();
-        switch (window.serverId) {
-          case serverId:
-            return;
-          case undefined:
-            loadConfiguration();
-            break;
-          default:
-              if (typeof MainActivity === "undefined") {
-                let href = window.location.href;
-                if (href.match(/autostart=false/i)) {
-                  window.location.href = `index.html?autostart=false`;
-                } else if (href.match(/autostart=true/i)) {
-                  window.location.href = `index.html?autostart=true`;
-                } else {
-                  window.location.reload();
-                }
-              } else {
-                if (document.querySelector("#Carnival")) {
-                  window.location.href = "index.html";
-                } else {
-                  MainActivity.exitApp();
-                  setTimeout(function () {
-                    window.open("emby://items", "_blank")
-                  }, 150);
-                }
-              }
-            break;
+        if (window.serverId && window.serverId !== serverId) {
+          reload();
+        } else {
+          window.serverId = serverId;
+          loadConfiguration();
         }
       }
     }
-    let pluginUniqueId = "98F76C3D-695F-4082-9220-AD5752E0859D";
 
     events.on(connectionManager, "localusersignedin", loadCustomCssJS());
 

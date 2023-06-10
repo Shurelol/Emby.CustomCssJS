@@ -160,7 +160,7 @@
     function loadConfiguration(type, source, name) {
       if (name) {
         if (source === "Server") {
-          ApiClient.getPluginConfiguration(pluginUniqueId).then(function (config) {
+          ApiClient.getJSON(ApiClient.getUrl("CustomCssJS/Scripts", {})).then(function (config) {
             let detail = config[`custom${type}`].find(item => item.name === name);
             let serverId = ApiClient.serverId();
             let customServerConfig = JSON.parse(localStorage.getItem(`custom${type}ServerConfig_${serverId}`));
@@ -199,8 +199,6 @@
       }
       loading.hide();
     }
-
-    let pluginUniqueId = "98F76C3D-695F-4082-9220-AD5752E0859D";
 
     view.addEventListener("viewshow", function () {
       loading.show();

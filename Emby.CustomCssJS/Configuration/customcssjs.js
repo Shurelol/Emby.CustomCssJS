@@ -201,7 +201,7 @@ define([
 
     function loadConfiguration() {
       loading.show();
-      ApiClient.getPluginConfiguration(pluginUniqueId).then(function (config) {
+      ApiClient.getJSON(ApiClient.getUrl("CustomCssJS/Scripts", {})).then(function (config) {
         let [customjsServer, customjsLocal] = getCustom("js", config);
         let [customcssServer, customcssLocal] = getCustom("css", config);
         renderConfiguration(customjsServer, "js", "Server");
@@ -221,8 +221,6 @@ define([
       renderLoadBtn();
       loading.hide();
     }
-
-    let pluginUniqueId = "98F76C3D-695F-4082-9220-AD5752E0859D";
   
     view.addEventListener("viewshow", function () {
       renderView();
