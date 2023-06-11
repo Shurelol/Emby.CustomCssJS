@@ -117,7 +117,7 @@ define([
     function loadCustomCssJS() {
       return function () {
         let serverId = ApiClient.serverId();
-        if (window.serverId && window.serverId !== serverId) {
+        if (window.serverId && window.serverId !== serverId && window.isCustomCssJSLoad) {
           reload();
         } else {
           window.serverId = serverId;
