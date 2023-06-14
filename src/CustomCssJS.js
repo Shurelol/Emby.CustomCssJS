@@ -23,10 +23,11 @@ define([
 
     function loadJS(name, content, source) {
       try {
-        let s = document.createElement("script");
-        s.type = "text/javascript";
-        s.innerHTML = content;
-        document.body.appendChild(s);
+        // let s = document.createElement("script");
+        // s.type = "text/javascript";
+        // s.innerHTML = content;
+        // document.body.appendChild(s);
+        new Function(content)();
         console.warn(`load CustomJS from ${source}: ${name}`);
       } catch (e) {
         console.error(`load CustomJS from ${source} ${name} error: ${e}`);
@@ -100,10 +101,10 @@ define([
         } else if (href.match(/autostart=true/i)) {
           window.location.href = `index.html?autostart=true`;
         } else {
-          window.location.reload();
+          window.location.href = "index.html";
         }
       } else {
-        if (document.querySelector("#Carnival")) {
+        if (document.getElementById("Carnival")) {
           window.location.href = "index.html";
         } else {
           MainActivity.exitApp();

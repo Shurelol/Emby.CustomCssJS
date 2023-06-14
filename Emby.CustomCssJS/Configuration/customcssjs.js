@@ -143,10 +143,10 @@ define([
           } else if (href.match(/autostart=true/i)) {
             window.location.href = `index.html?autostart=true`;
           } else {
-            window.location.reload();
+            window.location.href = "index.html";
           }
         } else {
-          if (document.querySelector("#Carnival")) {
+          if (document.getElementById("Carnival")) {
             window.location.href = "index.html";
           } else {
             MainActivity.exitApp();
