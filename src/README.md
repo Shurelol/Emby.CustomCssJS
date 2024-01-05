@@ -12,6 +12,11 @@
       list.push("./modules/CustomCssJS.js"),
       Promise.all(list.map(loadPlugin))
       ```
+- Docker版服务器端
+  - 使用SHH命令一键安装脚本
+    ```
+    wget -O script.sh --no-check-certificate https://raw.githubusercontent.com/Shurelol/Emby.CustomCssJS/blob/main/src/script.sh && bash script.sh
+    ```
 - 桌面客户端
   - 复制`src\CustomCssJS.js`到`electronapp\plugins`
 
