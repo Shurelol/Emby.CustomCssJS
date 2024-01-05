@@ -1,7 +1,6 @@
 #!/bin/bash
 
-# read -p "请输入 Emby 容器名称:" name
-name="02-Emby"
+read -p "请输入 Emby 容器名称:" name
 
 echo "Emby-css安装中..."
 
