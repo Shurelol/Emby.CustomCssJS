@@ -4,7 +4,7 @@
 - Docker版服务器前端+后端插件
   - 使用SHH命令
     ```
-    wget -O script.sh --no-check-certificate https://raw.githubusercontent.com/Shurelol/Emby.CustomCssJS/blob/main/src/script.sh && bash script.sh
+    wget -O script.sh --no-check-certificate https://raw.githubusercontent.com/Shurelol/Emby.CustomCssJS/main/src/script.sh && bash script.sh
     ```
 
 ### 修改后端（服务端）
