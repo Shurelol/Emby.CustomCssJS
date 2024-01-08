@@ -4,9 +4,8 @@
 - **注意XSS风险，出现任何问题后果自负**
 - **此插件基于 mediabrowser.server.core 4.8.0.24-beta**
 - [使用说明](src/README.md)
-- 测试（粘贴代码到自定义JavaScript或Css）
-  - [embyLaunchPotplayer](https://greasyfork.org/zh-CN/scripts/459297-embylaunchpotplayer/code)
-  - [Emby调用弹弹play](https://greasyfork.org/zh-CN/scripts/443916-emby%E8%B0%83%E7%94%A8%E5%BC%B9%E5%BC%B9play/code)
+- 脚本（粘贴代码到自定义JavaScript或Css）
+  - [Telegram频道](https://t.me/embycustomcssjs)
   - 弹幕相关插件暂时无法通过JavaScript及Css添加
 
 - 管理员页面：
