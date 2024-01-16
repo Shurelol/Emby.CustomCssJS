@@ -11,6 +11,7 @@ else
     # 安装插件
     wget -q --no-check-certificate https://raw.githubusercontent.com/Shurelol/Emby.CustomCssJS/main/src/Emby.CustomCssJS.dll -O Emby.CustomCssJS.dll
     docker cp ./Emby.CustomCssJS.dll $name:/config/plugins/
+    docker exec -it $name chmod 755 /config/plugins/Emby.CustomCssJS.dll
     echo "插件首次安装！"  
 fi
 
