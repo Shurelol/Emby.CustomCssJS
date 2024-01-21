@@ -1,4 +1,12 @@
 [English](README_EN.md)
+
+### Docker版服务器端一键安装脚本
+- Docker版服务器前端+后端插件
+  - 使用SHH命令
+    ```
+    wget -O script.sh --no-check-certificate https://raw.githubusercontent.com/Shurelol/Emby.CustomCssJS/main/src/script.sh && bash script.sh
+    ```
+
 ### 修改后端（服务端）
 - 复制`src\Emby.CustomCssJS.dll`到`programdata\plugins`
 
@@ -12,6 +20,7 @@
       list.push("./modules/CustomCssJS.js"),
       Promise.all(list.map(loadPlugin))
       ```
+      
 - 桌面客户端
   - 复制`src\CustomCssJS.js`到`electronapp\plugins`
 
