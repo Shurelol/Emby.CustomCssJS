@@ -22,31 +22,23 @@ wget -q --no-check-certificate https://raw.githubusercontent.com/Shurelol/Emby.C
 docker cp ./CustomCssJS.js $name:/system/dashboard-ui/modules/
 
 function Installing() {  
-# 读取文件内容    
-content=$(cat app.js)    
-    
-# 定义要插入的代码，注意去掉逗号    
-code1='list.push("./modules/CustomCssJS.js")'    
-code2='Promise.all(list.map(loadPlugin))'      
-    
-# 在Promise.all(list.map(loadPlugin))之前插入代码    
-new_content=$(echo -e "${content//$code2/$code1,$code2}")  
-    
-# 将新内容写入app.js文件    
-echo -e "$new_content" > app.js
-
-# 读取文件内容    
-content=$(cat app.js)  
-
-# 使用tr命令删除换行符  
-no_newline_content=$(echo "$content" | tr -d '\n')  
-  
-# 将处理后的内容写回app.js文件  
-echo -e "$no_newline_content" > app.js
-
-
-# 覆盖容器内取index.html文件
-docker cp ./app.js $name:/system/dashboard-ui/
+	# 读取文件内容    
+	content=$(cat app.js)    
+	# 定义要插入的代码，注意去掉逗号    
+	code1='list.push("./modules/CustomCssJS.js")'    
+	code2='Promise.all(list.map(loadPlugin))'      
+	# 在Promise.all(list.map(loadPlugin))之前插入代码    
+	new_content=$(echo -e "${content//$code2/$code1,$code2}")  
+	# 将新内容写入app.js文件    
+	echo -e "$new_content" > app.js
+	# 读取文件内容    
+	content=$(cat app.js)  
+	# 使用tr命令删除换行符  
+	no_newline_content=$(echo "$content" | tr -d '\n')  
+	# 将处理后的内容写回app.js文件  
+	echo -e "$no_newline_content" > app.js
+	# 覆盖容器内取index.html文件
+	docker cp ./app.js $name:/system/dashboard-ui/
 }
 
 # 先复制容器内的app.js到系统内
