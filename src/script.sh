@@ -2,7 +2,9 @@
 
 read -p "请输入 Emby 容器名称:" name
 
-echo "Emby-css安装中..."
+echo "Emby-css安装中...
+1.先检查插件
+2.再修改首页html"
 
 # 使用 docker exec 检查文件是否存在  
 if docker exec "$name" test -f "/config/plugins/Emby.CustomCssJS.dll"; then  
@@ -46,10 +48,11 @@ function Installing() {
 docker cp $name:/system/dashboard-ui/app.js ./
 
 # 如果不包含替换内容
-if ! grep -c "CustomCssJS.js" app.js; then  
+count=$(grep -c "CustomCssJS.js" app.js)
+if [ "$count" -eq 0 ]; then
     docker cp $name:/system/dashboard-ui/app.js ./
     # 备份
-    docker exec -it  $name mkdir -p /system/dashboard-ui/bak/
+    docker exec -it $name mkdir -p /system/dashboard-ui/bak/
     docker cp ./app.js $name:/system/dashboard-ui/bak/
     Installing
     echo "成功！Index.html 首次安装！"
