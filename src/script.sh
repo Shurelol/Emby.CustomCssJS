@@ -52,7 +52,7 @@ count=$(grep -c "CustomCssJS.js" app.js)
 if [ "$count" -eq 0 ]; then
     docker cp $name:/system/dashboard-ui/app.js ./
     # 备份
-    docker exec -it  $name mkdir -p /system/dashboard-ui/bak/
+    docker exec -it $name mkdir -p /system/dashboard-ui/bak/
     docker cp ./app.js $name:/system/dashboard-ui/bak/
     Installing
     echo "成功！Index.html 首次安装！"
