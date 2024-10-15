@@ -22,6 +22,7 @@
 		<None Remove="Configuration\customcssjs_ace_worker-css.js" />
 		<None Remove="strings\zh-CN.json" />
 		<None Remove="thumb.jpg" />
+		<None Remove="CustomCssJS.js" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -38,10 +39,12 @@
 		<EmbeddedResource Include="Configuration\customcssjs_ace_worker-css.js" />
 		<EmbeddedResource Include="strings\zh-CN.json" />
 		<EmbeddedResource Include="thumb.jpg" />
+		<EmbeddedResource Include="CustomCssJS.js" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<PackageReference Include="mediabrowser.server.core" Version="4.8.0.24-beta" />	
+		<PackageReference Include="System.Memory" Version="4.5.5" />	
 	</ItemGroup>
 
   <!--//This automatically will load the dll from you r project into the Emby Plugin folderServer -->
