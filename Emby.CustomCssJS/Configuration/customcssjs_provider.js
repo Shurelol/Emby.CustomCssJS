@@ -41,6 +41,10 @@ define([
       embyRouter.show(url.pop() + `&cname=${name}&type=${type}`);
     }
 
+    function scrollByEvent(e) {
+      e.target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
     function renderConfiguration(config, type) {
       let listNode = view.querySelector(`#custom${type}List`);
       while (listNode.childNodes.length > 0) {
@@ -95,11 +99,13 @@ define([
           delBtnNode.addEventListener("click", function () {
             del(detail.name, type);
           });
+          delBtnNode.addEventListener("focus", scrollByEvent);
           // set edit button
           let editBtnNode = templateNode.querySelector(".customcssjsEditBtn");
           editBtnNode.addEventListener("click", function () {
             update(detail.name, type)
           });
+          editBtnNode.addEventListener("focus", scrollByEvent);
           // append to list
           listNode.appendChild(templateNode);
         }
