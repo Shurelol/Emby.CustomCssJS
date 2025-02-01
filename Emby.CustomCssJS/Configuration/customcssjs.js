@@ -38,6 +38,10 @@ define([
       let url = Dashboard.getConfigurationResourceUrl('customcssjs_update').split("/");
       embyRouter.show(url.pop() + `&cname=${name}&type=${type}&source=${source}&forceflag=${forceflag}`);
     }
+
+    function scrollByEvent(e) {
+      e.target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
   
     function renderConfiguration(config, type, source) {
       let listNode = view.querySelector(`#custom${type}List${source}`);
@@ -111,12 +115,17 @@ define([
           editBtnNode.addEventListener("click", function () {
             update(detail.name, type, source, forceflag)
           });
+          editBtnNode.addEventListener("focus", scrollByEvent);
           // set delete button
           let delBtnNode = templateNode.querySelector(".customcssjsDelBtn");
-          source === "Server" ? delBtnNode.remove()
-            : delBtnNode.addEventListener("click", function () {
-              del(detail.name, type);
-            });
+          if (source === "Server") {
+            delBtnNode.remove();
+          } else {
+              delBtnNode.addEventListener("click", function () {
+                del(detail.name, type);
+              });
+              delBtnNode.addEventListener("focus", scrollByEvent);
+          }
           // append to list
           view.querySelector(`#custom${type}List${source}Description`).classList.remove("hide");
           listNode.appendChild(templateNode);
